@@ -14,7 +14,7 @@ public class DBConnection {
 
     private DBConnection() throws SQLException {
         // If the database does not exist, create it automatically. If it already exists, use the existing database.
-        String url = "jdbc:mysql://localhost:3306/AMVSchool_db?createDatabaseIfNotExist=true";
+        String url = "jdbc:mysql://localhost:3306/ccaschool_db?createDatabaseIfNotExist=true";
         connection = DriverManager.getConnection(url, "root", "1234"); 
     }
 
