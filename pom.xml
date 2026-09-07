@@ -27,5 +27,10 @@
             <artifactId>javax.mail</artifactId>
             <version>1.6.2</version>
         </dependency>
-    </dependencies>
+            <dependency>
+                  <groupId>com.mycompany</groupId>
+                  <artifactId>School_Management_System</artifactId>
+                  <version>1.0-SNAPSHOT</version>
+            </dependency>
+      </dependencies>
 </project>

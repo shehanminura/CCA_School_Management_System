@@ -106,7 +106,8 @@ public class Loginview extends javax.swing.JFrame {
         jLabel4.setText("Log in to CCA School Management System");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
-        jLabel6.setText("Forgot password?");
+        jLabel6.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel6.setText("Forgot Password ?");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -131,7 +132,7 @@ public class Loginview extends javax.swing.JFrame {
         jPanel1.add(adminpsw, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 270, -1));
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.green, java.awt.Color.yellow, java.awt.Color.orange));
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 320, 100));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 300, 100));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 380, 450));
 
