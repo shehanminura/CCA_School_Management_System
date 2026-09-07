@@ -61,14 +61,14 @@ public class Startview extends javax.swing.JFrame {
         dateandtime.setFont(new java.awt.Font("Rockwell Condensed", 1, 36)); // NOI18N
         dateandtime.setForeground(new java.awt.Color(255, 255, 255));
         dateandtime.setText("Date ");
-        getContentPane().add(dateandtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, -1, -1));
+        getContentPane().add(dateandtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 102));
         jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Apply to Register");
         jButton2.addActionListener(this::jButton2ActionPerformed);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 230, 50));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, 230, 50));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 102));
         jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
@@ -78,14 +78,15 @@ public class Startview extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 510, 210, 50));
 
         startimgbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/newstartbg.jpeg"))); // NOI18N
-        getContentPane().add(startimgbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 600));
+        getContentPane().add(startimgbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         View.Loginview loginview = new View.Loginview();
-        loginview.setVisible(true);        // TODO add your handling code here:
+        loginview.setVisible(true);     
+        this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

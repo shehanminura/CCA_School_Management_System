@@ -51,18 +51,21 @@ public class LoginController {
                 switch (role) {
                     case "Admin":
                         JOptionPane.showMessageDialog(null, "Welcome Admin!");
+                         
                         View.DashbordAdmin adminDash = new View.DashbordAdmin();
                         adminDash.setVisible(true);
                         break;
                         
                     case "Teacher":
                         JOptionPane.showMessageDialog(null, "Welcome Teacher!");
+                        
                         View.DashbordTeacher dashbordTeacher = new View.DashbordTeacher();
                         dashbordTeacher.setVisible(true);
                         break;
                         
                     case "Student":
                         JOptionPane.showMessageDialog(null, "Welcome Student!");
+                        
                         View.DashbordStudent dashbordStudent = new View.DashbordStudent();
                         dashbordStudent.setVisible(true);
                         break;
@@ -76,6 +79,10 @@ public class LoginController {
                 JOptionPane.showMessageDialog(view, "Invalid Email or Password!", "Login Failed", JOptionPane.ERROR_MESSAGE);
                 view.clearPassword(); 
             }
+        }
+
+        private void dispose() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
     }
 }
