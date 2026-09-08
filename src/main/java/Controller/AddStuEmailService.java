@@ -25,72 +25,103 @@ public class AddStuEmailService {
             
             // 3. Email Body
           // 3. HTML Email Body එක ලස්සනට සැකසීම
-           String emailBody = "<html>"
-        + "<body style='margin:0; padding:0; background-color:#f4f7fb; font-family:Arial, Helvetica, sans-serif; color:#333333;'>"
+        String emailBody = "<html>"
+        + "<body style='margin:0; padding:0; background-color:#F3F7F4; "
+        + "font-family:Arial, Helvetica, sans-serif; color:#333333;'>"
 
-        // Main Container
+        // =====================================================
+        // MAIN CONTAINER
+        // =====================================================
         + "<div style='width:100%; padding:30px 0;'>"
 
         + "<table align='center' width='650' cellpadding='0' cellspacing='0' "
-        + "style='background-color:#ffffff; border-radius:12px; overflow:hidden; "
+        + "style='width:650px; max-width:650px; background-color:#ffffff; "
+        + "border-collapse:collapse; border-radius:12px; overflow:hidden; "
         + "box-shadow:0 4px 15px rgba(0,0,0,0.08);'>"
 
-        // ================= HEADER =================
+
+        // =====================================================
+        // HEADER
+        // =====================================================
         + "<tr>"
-        + "<td style='background-color:#063970; padding:28px 30px; text-align:center;'>"
+        + "<td style='background-color:#006B3C; padding:30px 25px; text-align:center;'>"
 
+        // LOGO
         + "<img src='https://anucentralcollege.com/og-image.jpg' "
-        + "alt='Central College Anuradhapura' "
-        + "style='width:85px; height:85px; border-radius:50%; background-color:white; padding:5px;'>"
+        + "alt='Central College Anuradhapura Logo' "
+        + "style='width:85px; height:85px; border-radius:50%; "
+        + "background-color:#ffffff; padding:6px; "
+        + "border:3px solid #D4AF37;'>"
 
-        + "<h1 style='color:#ffffff; margin:15px 0 5px 0; font-size:25px;'>"
-        + "Central College Anuradhapura"
+        // SCHOOL NAME
+        + "<h1 style='margin:15px 0 5px 0; color:#ffffff; "
+        + "font-size:24px; letter-spacing:0.5px;'>"
+        + "CENTRAL COLLEGE ANURADHAPURA"
         + "</h1>"
 
-        + "<p style='color:#dcecff; margin:0; font-size:14px;'>"
-        + "Student Management System"
+        + "<p style='margin:0; color:#F5D76E; font-size:14px; "
+        + "font-weight:bold; letter-spacing:0.5px;'>"
+        + "STUDENT MANAGEMENT SYSTEM"
         + "</p>"
 
         + "</td>"
         + "</tr>"
 
-        // ================= WELCOME =================
-        + "<tr>"
-        + "<td style='padding:35px 40px 15px 40px;'>"
 
-        + "<p style='font-size:16px; margin:0 0 15px 0;'>"
-        + "Dear <strong>" + student.getName() + "</strong>,"
+        // =====================================================
+        // GOLD LINE
+        // =====================================================
+        + "<tr>"
+        + "<td style='height:5px; background-color:#D4AF37;'></td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // GREETING
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:35px 40px 10px 40px;'>"
+
+        + "<p style='margin:0 0 12px 0; font-size:16px;'>"
+        + "Dear <strong style='color:#006B3C;'>"
+        + student.getName()
+        + "</strong>,"
         + "</p>"
 
-        + "<h2 style='color:#063970; margin:0 0 15px 0; font-size:22px;'>"
-        + "Registration Successful!"
+        + "<h2 style='margin:0 0 15px 0; color:#006B3C; "
+        + "font-size:23px;'>"
+        + "Student Registration Confirmed"
         + "</h2>"
 
-        + "<p style='font-size:15px; line-height:1.7; color:#555555;'>"
+        + "<p style='margin:0; color:#555555; font-size:15px; "
+        + "line-height:1.7;'>"
         + "We are pleased to inform you that your registration with the "
         + "<strong>Central College Anuradhapura Student Management System</strong> "
         + "has been successfully completed."
         + "</p>"
 
-        + "<p style='font-size:15px; line-height:1.7; color:#555555;'>"
-        + "Please find your registration details and system login information below."
-        + "</p>"
-
         + "</td>"
         + "</tr>"
 
-        // ================= STUDENT ID BOX =================
+
+        // =====================================================
+        // STUDENT ID CARD
+        // =====================================================
         + "<tr>"
-        + "<td style='padding:5px 40px 20px 40px;'>"
+        + "<td style='padding:20px 40px;'>"
 
-        + "<div style='background-color:#eef6ff; border-left:5px solid #063970; "
-        + "padding:18px 20px; border-radius:6px;'>"
+        + "<div style='background-color:#F0F8F3; "
+        + "border:1px solid #C8E6D4; "
+        + "border-left:5px solid #006B3C; "
+        + "border-radius:7px; padding:18px 20px;'>"
 
-        + "<p style='margin:0; color:#555555; font-size:13px;'>"
+        + "<p style='margin:0; font-size:12px; "
+        + "color:#6B6B6B; font-weight:bold; letter-spacing:1px;'>"
         + "YOUR STUDENT ID"
         + "</p>"
 
-        + "<p style='margin:6px 0 0 0; color:#063970; font-size:24px; font-weight:bold;'>"
+        + "<p style='margin:7px 0 0 0; font-size:25px; "
+        + "font-weight:bold; color:#006B3C;'>"
         + student.getStudentId()
         + "</p>"
 
@@ -99,81 +130,121 @@ public class AddStuEmailService {
         + "</td>"
         + "</tr>"
 
-        // ================= DETAILS TITLE =================
-        + "<tr>"
-        + "<td style='padding:10px 40px 5px 40px;'>"
 
-        + "<h3 style='color:#063970; margin:0; font-size:18px;'>"
+        // =====================================================
+        // DETAILS TITLE
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:5px 40px 12px 40px;'>"
+
+        + "<h3 style='margin:0; color:#006B3C; font-size:18px;'>"
         + "Student Registration Details"
         + "</h3>"
+
+        + "<div style='width:45px; height:3px; "
+        + "background-color:#D4AF37; margin-top:7px;'></div>"
 
         + "</td>"
         + "</tr>"
 
-        // ================= DETAILS TABLE =================
+
+        // =====================================================
+        // DETAILS TABLE
+        // =====================================================
         + "<tr>"
-        + "<td style='padding:10px 40px 20px 40px;'>"
+        + "<td style='padding:5px 40px 25px 40px;'>"
 
         + "<table width='100%' cellpadding='0' cellspacing='0' "
         + "style='border-collapse:collapse; font-size:14px;'>"
 
+
+        // Full Name
         + "<tr>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee; "
-        + "background-color:#f8fafc; font-weight:bold; width:40%;'>Full Name</td>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee;'>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; width:40%; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Full Name"
+        + "</td>"
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
         + student.getName()
         + "</td>"
         + "</tr>"
 
+
+        // Birthday
         + "<tr>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee; "
-        + "background-color:#f8fafc; font-weight:bold;'>Date of Birth</td>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee;'>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Date of Birth"
+        + "</td>"
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
         + student.getBirthday()
         + "</td>"
         + "</tr>"
 
+
+        // Gender
         + "<tr>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee; "
-        + "background-color:#f8fafc; font-weight:bold;'>Gender</td>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee;'>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Gender"
+        + "</td>"
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
         + student.getGender()
         + "</td>"
         + "</tr>"
 
+
+        // Contact
         + "<tr>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee; "
-        + "background-color:#f8fafc; font-weight:bold;'>Contact Number</td>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee;'>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Contact Number"
+        + "</td>"
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
         + student.getContactNumber()
         + "</td>"
         + "</tr>"
 
+
+        // Address
         + "<tr>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee; "
-        + "background-color:#f8fafc; font-weight:bold;'>Address</td>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee;'>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Address"
+        + "</td>"
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
         + student.getAddress()
         + "</td>"
         + "</tr>"
 
+
+        // Email
         + "<tr>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee; "
-        + "background-color:#f8fafc; font-weight:bold;'>Email</td>"
-        + "<td style='padding:12px; border-bottom:1px solid #eeeeee;'>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Registered Email"
+        + "</td>"
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
         + student.getEmail()
         + "</td>"
         + "</tr>"
 
+
+        // Status
         + "<tr>"
-        + "<td style='padding:12px; background-color:#f8fafc; font-weight:bold;'>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "font-weight:bold; color:#365443;'>"
         + "Account Status"
         + "</td>"
-
         + "<td style='padding:12px; color:#198754; font-weight:bold;'>"
         + "✓ " + student.getStatus()
         + "</td>"
-
         + "</tr>"
 
         + "</table>"
@@ -181,31 +252,37 @@ public class AddStuEmailService {
         + "</td>"
         + "</tr>"
 
-        // ================= LOGIN SECTION =================
-        + "<tr>"
-        + "<td style='padding:5px 40px 25px 40px;'>"
 
-        + "<div style='background-color:#f8f9fa; border:1px solid #e1e5ea; "
+        // =====================================================
+        // LOGIN INFORMATION
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:0 40px 25px 40px;'>"
+
+        + "<div style='background-color:#FFF9E8; "
+        + "border:1px solid #E8D58A; "
         + "border-radius:8px; padding:20px;'>"
 
-        + "<h3 style='margin:0 0 15px 0; color:#063970;'>"
-        + "System Login Information"
+        + "<h3 style='margin:0 0 15px 0; color:#6B5200; "
+        + "font-size:17px;'>"
+        + "🔐 System Login Information"
         + "</h3>"
 
-        + "<p style='margin:8px 0; font-size:14px;'>"
+        + "<p style='margin:9px 0; font-size:14px;'>"
         + "<strong>Student ID:</strong> "
         + student.getStudentId()
         + "</p>"
 
-        + "<p style='margin:8px 0; font-size:14px;'>"
-        + "<strong>Registered Email:</strong> "
+        + "<p style='margin:9px 0; font-size:14px;'>"
+        + "<strong>Email:</strong> "
         + student.getEmail()
         + "</p>"
 
-        + "<p style='margin:8px 0; font-size:14px;'>"
+        + "<p style='margin:9px 0; font-size:14px;'>"
         + "<strong>Temporary Password:</strong> "
-        + "<span style='font-family:monospace; background:#ffffff; "
-        + "padding:5px 8px; border:1px solid #ddd; border-radius:4px;'>"
+        + "<span style='background:#ffffff; padding:6px 10px; "
+        + "border:1px solid #D9D9D9; border-radius:4px; "
+        + "font-family:monospace; font-weight:bold;'>"
         + student.getPassword()
         + "</span>"
         + "</p>"
@@ -215,18 +292,26 @@ public class AddStuEmailService {
         + "</td>"
         + "</tr>"
 
-        // ================= SECURITY WARNING =================
+
+        // =====================================================
+        // SECURITY NOTICE
+        // =====================================================
         + "<tr>"
         + "<td style='padding:0 40px 25px 40px;'>"
 
-        + "<div style='background-color:#fff8e6; border:1px solid #ffe08a; "
-        + "border-radius:7px; padding:15px;'>"
+        + "<div style='background-color:#F4F9F6; "
+        + "border-left:4px solid #D4AF37; "
+        + "padding:15px 18px; border-radius:5px;'>"
 
-        + "<p style='margin:0; color:#7a5b00; font-size:13px; line-height:1.6;'>"
-        + "<strong>🔐 Security Notice</strong><br>"
-        + "Please keep your login credentials confidential. Do not share your "
-        + "password with other students or unauthorized persons. "
-        + "For your security, please change your temporary password after your first login."
+        + "<p style='margin:0; color:#4B5B51; "
+        + "font-size:13px; line-height:1.6;'>"
+
+        + "<strong style='color:#006B3C;'>Security Notice</strong><br>"
+
+        + "Please keep your login credentials confidential and do not "
+        + "share your password with anyone. For your security, "
+        + "please change your temporary password after your first login."
+
         + "</p>"
 
         + "</div>"
@@ -234,56 +319,78 @@ public class AddStuEmailService {
         + "</td>"
         + "</tr>"
 
-        // ================= ADMIN MESSAGE =================
+
+        // =====================================================
+        // INFORMATION NOTICE
+        // =====================================================
         + "<tr>"
         + "<td style='padding:0 40px 25px 40px;'>"
 
-        + "<p style='font-size:14px; color:#555555; line-height:1.7; margin:0;'>"
-        + "If any of the information provided in this email is incorrect, "
-        + "please contact the school administration or system administrator "
-        + "as soon as possible."
+        + "<p style='margin:0; font-size:13px; color:#666666; "
+        + "line-height:1.7;'>"
+
+        + "If you notice any errors or discrepancies in the registration "
+        + "details provided above, please contact the school administration "
+        + "or system administrator as soon as possible."
+
         + "</p>"
 
         + "</td>"
         + "</tr>"
 
-        // ================= CLOSING =================
+
+        // =====================================================
+        // CLOSING
+        // =====================================================
         + "<tr>"
         + "<td style='padding:5px 40px 30px 40px;'>"
 
-        + "<p style='font-size:14px; line-height:1.7; margin:0;'>"
+        + "<p style='margin:0; font-size:14px; color:#555555; "
+        + "line-height:1.7;'>"
+
         + "We wish you every success in your academic journey."
+
         + "</p>"
 
-        + "<p style='font-size:14px; line-height:1.7; margin:15px 0 0 0;'>"
+        + "<p style='margin:15px 0 0 0; font-size:14px; "
+        + "line-height:1.7;'>"
+
         + "Sincerely,<br>"
-        + "<strong style='color:#063970;'>The Administration</strong><br>"
+        + "<strong style='color:#006B3C;'>The Administration</strong><br>"
         + "Central College Anuradhapura"
+
         + "</p>"
 
         + "</td>"
         + "</tr>"
 
-        // ================= FOOTER =================
+
+        // =====================================================
+        // FOOTER
+        // =====================================================
         + "<tr>"
-        + "<td style='background-color:#063970; padding:20px 30px; text-align:center;'>"
+        + "<td style='background-color:#004D2C; "
+        + "border-top:4px solid #D4AF37; "
+        + "padding:22px 30px; text-align:center;'>"
 
-        + "<p style='color:#ffffff; margin:0 0 5px 0; font-size:13px;'>"
-        + "<strong>Central College Anuradhapura</strong>"
+        + "<p style='margin:0 0 6px 0; color:#ffffff; "
+        + "font-size:13px; font-weight:bold;'>"
+        + "CENTRAL COLLEGE ANURADHAPURA"
         + "</p>"
 
-        + "<p style='color:#bcd2e8; margin:0; font-size:11px;'>"
-        + "This is an automated email from the Student Management System."
+        + "<p style='margin:0; color:#C8DED3; font-size:11px;'>"
+        + "Student Management System"
         + "</p>"
 
-        + "<p style='color:#bcd2e8; margin:8px 0 0 0; font-size:11px;'>"
-        + "Please do not reply directly to this email."
+        + "<p style='margin:8px 0 0 0; color:#A9C7B8; font-size:10px;'>"
+        + "This is an automated email. Please do not reply directly to this message."
         + "</p>"
 
         + "</td>"
         + "</tr>"
 
         + "</table>"
+
         + "</div>"
 
         + "</body>"
@@ -297,6 +404,632 @@ public class AddStuEmailService {
             
         } catch (Exception e) {
             System.out.println("Email Sending Failed: " + e.getMessage());
+        }
+    }
+    // --- Update Email යැවීම ---
+    public static void sendUpdateEmail(StudentDto student) {
+        try {
+            Session session = MailConnection.getInstance().getSession();
+            String senderEmail = MailConnection.getInstance().getSenderEmail();
+            
+            javax.mail.Message message = new javax.mail.internet.MimeMessage(session);
+            message.setFrom(new javax.mail.internet.InternetAddress(senderEmail));
+            message.setRecipients(javax.mail.Message.RecipientType.TO, javax.mail.internet.InternetAddress.parse(student.getEmail()));
+            message.setSubject("Account Update Notification - Central College Anuradhapura");
+            
+           String emailBody = "<html>"
+        + "<body style='margin:0; padding:0; background-color:#F3F7F4; "
+        + "font-family:Arial, Helvetica, sans-serif; color:#333333;'>"
+
+        // =====================================================
+        // MAIN CONTAINER
+        // =====================================================
+        + "<div style='width:100%; padding:30px 0;'>"
+
+        + "<table align='center' width='650' cellpadding='0' cellspacing='0' "
+        + "style='width:650px; max-width:650px; background-color:#ffffff; "
+        + "border-collapse:collapse; border-radius:12px; overflow:hidden; "
+        + "box-shadow:0 4px 15px rgba(0,0,0,0.08);'>"
+
+
+        // =====================================================
+        // HEADER
+        // =====================================================
+        + "<tr>"
+        + "<td style='background-color:#006B3C; padding:30px 25px; text-align:center;'>"
+
+        + "<img src='https://anucentralcollege.com/og-image.jpg' "
+        + "alt='Central College Anuradhapura Logo' "
+        + "style='width:85px; height:85px; border-radius:50%; "
+        + "background-color:#ffffff; padding:6px; "
+        + "border:3px solid #D4AF37;'>"
+
+        + "<h1 style='margin:15px 0 5px 0; color:#ffffff; "
+        + "font-size:24px; letter-spacing:0.5px;'>"
+        + "CENTRAL COLLEGE ANURADHAPURA"
+        + "</h1>"
+
+        + "<p style='margin:0; color:#F5D76E; font-size:14px; "
+        + "font-weight:bold; letter-spacing:0.5px;'>"
+        + "STUDENT MANAGEMENT SYSTEM"
+        + "</p>"
+
+        + "</td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // GOLD LINE
+        // =====================================================
+        + "<tr>"
+        + "<td style='height:5px; background-color:#D4AF37;'></td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // TITLE / GREETING
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:35px 40px 10px 40px;'>"
+
+        + "<p style='margin:0 0 12px 0; font-size:16px;'>"
+        + "Dear <strong style='color:#006B3C;'>"
+        + student.getName()
+        + "</strong>,"
+        + "</p>"
+
+        + "<h2 style='margin:0 0 15px 0; color:#006B3C; "
+        + "font-size:23px;'>"
+        + "Student Profile Updated"
+        + "</h2>"
+
+        + "<p style='margin:0; color:#555555; font-size:15px; "
+        + "line-height:1.7;'>"
+
+        + "This is to inform you that your student profile in the "
+        + "<strong>Central College Anuradhapura Student Management System</strong> "
+        + "has been successfully updated by the school administration."
+
+        + "</p>"
+
+        + "</td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // STUDENT ID BOX
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:20px 40px;'>"
+
+        + "<div style='background-color:#F0F8F3; "
+        + "border:1px solid #C8E6D4; "
+        + "border-left:5px solid #006B3C; "
+        + "border-radius:7px; padding:18px 20px;'>"
+
+        + "<p style='margin:0; font-size:12px; "
+        + "color:#6B6B6B; font-weight:bold; letter-spacing:1px;'>"
+        + "STUDENT ID"
+        + "</p>"
+
+        + "<p style='margin:7px 0 0 0; font-size:24px; "
+        + "font-weight:bold; color:#006B3C;'>"
+        + student.getStudentId()
+        + "</p>"
+
+        + "</div>"
+
+        + "</td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // UPDATE INFORMATION
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:5px 40px 12px 40px;'>"
+
+        + "<h3 style='margin:0; color:#006B3C; font-size:18px;'>"
+        + "Updated Student Information"
+        + "</h3>"
+
+        + "<div style='width:45px; height:3px; "
+        + "background-color:#D4AF37; margin-top:7px;'></div>"
+
+        + "</td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // STUDENT DETAILS TABLE
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:5px 40px 25px 40px;'>"
+
+        + "<table width='100%' cellpadding='0' cellspacing='0' "
+        + "style='border-collapse:collapse; font-size:14px;'>"
+
+
+        // FULL NAME
+        + "<tr>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; width:40%; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Full Name"
+        + "</td>"
+
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
+        + student.getName()
+        + "</td>"
+        + "</tr>"
+
+
+        // DATE OF BIRTH
+        + "<tr>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Date of Birth"
+        + "</td>"
+
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
+        + student.getBirthday()
+        + "</td>"
+        + "</tr>"
+
+
+        // GENDER
+        + "<tr>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Gender"
+        + "</td>"
+
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
+        + student.getGender()
+        + "</td>"
+        + "</tr>"
+
+
+        // CONTACT NUMBER
+        + "<tr>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Contact Number"
+        + "</td>"
+
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
+        + student.getContactNumber()
+        + "</td>"
+        + "</tr>"
+
+
+        // ADDRESS
+        + "<tr>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Address"
+        + "</td>"
+
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
+        + student.getAddress()
+        + "</td>"
+        + "</tr>"
+
+
+        // EMAIL
+        + "<tr>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "border-bottom:1px solid #E4EAE6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Registered Email"
+        + "</td>"
+
+        + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
+        + student.getEmail()
+        + "</td>"
+        + "</tr>"
+
+
+        // STATUS
+        + "<tr>"
+        + "<td style='padding:12px; background-color:#F5F9F6; "
+        + "font-weight:bold; color:#365443;'>"
+        + "Account Status"
+        + "</td>"
+
+        + "<td style='padding:12px; color:#198754; font-weight:bold;'>"
+        + "✓ " + student.getStatus()
+        + "</td>"
+        + "</tr>"
+
+        + "</table>"
+
+        + "</td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // IMPORTANT UPDATE NOTICE
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:0 40px 25px 40px;'>"
+
+        + "<div style='background-color:#FFF9E8; "
+        + "border:1px solid #E8D58A; "
+        + "border-left:5px solid #D4AF37; "
+        + "border-radius:7px; padding:18px 20px;'>"
+
+        + "<h3 style='margin:0 0 10px 0; color:#6B5200; "
+        + "font-size:16px;'>"
+        + "Important Information"
+        + "</h3>"
+
+        + "<p style='margin:0; color:#665A35; font-size:13px; "
+        + "line-height:1.7;'>"
+
+        + "The information displayed above represents the current "
+        + "student profile details stored in the school management system. "
+        + "Please review the information carefully and ensure that "
+        + "all details are correct."
+
+        + "</p>"
+
+        + "</div>"
+
+        + "</td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // SECURITY NOTICE
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:0 40px 25px 40px;'>"
+
+        + "<div style='background-color:#F4F9F6; "
+        + "border-left:4px solid #006B3C; "
+        + "padding:15px 18px; border-radius:5px;'>"
+
+        + "<p style='margin:0; color:#4B5B51; "
+        + "font-size:13px; line-height:1.6;'>"
+
+        + "<strong style='color:#006B3C;'>Security Notice</strong><br>"
+
+        + "If you did not request or expect these changes, please contact "
+        + "the school administration or IT department immediately. "
+        + "Do not share your account credentials with anyone."
+
+        + "</p>"
+
+        + "</div>"
+
+        + "</td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // SUPPORT MESSAGE
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:0 40px 25px 40px;'>"
+
+        + "<p style='margin:0; font-size:13px; color:#666666; "
+        + "line-height:1.7;'>"
+
+        + "If you identify any incorrect information in your profile, "
+        + "please contact the school administration to request "
+        + "a correction."
+
+        + "</p>"
+
+        + "</td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // CLOSING
+        // =====================================================
+        + "<tr>"
+        + "<td style='padding:5px 40px 30px 40px;'>"
+
+        + "<p style='margin:0; font-size:14px; color:#555555; "
+        + "line-height:1.7;'>"
+
+        + "Thank you for keeping your student information up to date."
+
+        + "</p>"
+
+        + "<p style='margin:15px 0 0 0; font-size:14px; "
+        + "line-height:1.7;'>"
+
+        + "Sincerely,<br>"
+        + "<strong style='color:#006B3C;'>The Administration</strong><br>"
+        + "Central College Anuradhapura"
+
+        + "</p>"
+
+        + "</td>"
+        + "</tr>"
+
+
+        // =====================================================
+        // FOOTER
+        // =====================================================
+        + "<tr>"
+        + "<td style='background-color:#004D2C; "
+        + "border-top:4px solid #D4AF37; "
+        + "padding:22px 30px; text-align:center;'>"
+
+        + "<p style='margin:0 0 6px 0; color:#ffffff; "
+        + "font-size:13px; font-weight:bold;'>"
+        + "CENTRAL COLLEGE ANURADHAPURA"
+        + "</p>"
+
+        + "<p style='margin:0; color:#C8DED3; font-size:11px;'>"
+        + "Student Management System"
+        + "</p>"
+
+        + "<p style='margin:8px 0 0 0; color:#A9C7B8; font-size:10px;'>"
+        + "This is an automated email. Please do not reply directly to this message."
+        + "</p>"
+
+        + "</td>"
+        + "</tr>"
+
+        + "</table>"
+
+        + "</div>"
+
+        + "</body>"
+        + "</html>";
+            
+            message.setContent(emailBody, "text/html; charset=utf-8");
+            javax.mail.Transport.send(message);
+            System.out.println("Update Email Sent to: " + student.getEmail());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // --- Delete Email ---
+   // --- Delete Email යැවීම (අලුත් Template එක සමග) ---
+    public static void sendDeleteEmail(String email, String name, String studentId) {
+        try {
+            javax.mail.Session session = MailConnection.getInstance().getSession();
+            String senderEmail = MailConnection.getInstance().getSenderEmail();
+            
+            javax.mail.Message message = new javax.mail.internet.MimeMessage(session);
+            message.setFrom(new javax.mail.internet.InternetAddress(senderEmail));
+            message.setRecipients(javax.mail.Message.RecipientType.TO, javax.mail.internet.InternetAddress.parse(email));
+            message.setSubject("Account Deletion Notice - Central College Anuradhapura");
+            
+            // Delete කරන වෙලාව ලබා ගැනීම (ඔයාගේ Singleton ක්ලාස් එක හරහා)
+            String deletionDateTime = DateandTimeConnection.DateandTimeConnection.getInstance().getCurrentDateTime();
+            
+            String emailBody = "<html>"
+            + "<body style='margin:0; padding:0; background-color:#F3F7F4; "
+            + "font-family:Arial, Helvetica, sans-serif; color:#333333;'>"
+
+            // =====================================================
+            // MAIN CONTAINER
+            // =====================================================
+            + "<div style='width:100%; padding:30px 0;'>"
+
+            + "<table align='center' width='650' cellpadding='0' cellspacing='0' "
+            + "style='width:650px; max-width:650px; background-color:#ffffff; "
+            + "border-collapse:collapse; border-radius:12px; overflow:hidden; "
+            + "box-shadow:0 4px 15px rgba(0,0,0,0.08);'>"
+
+            // =====================================================
+            // HEADER
+            // =====================================================
+            + "<tr>"
+            + "<td style='background-color:#006B3C; padding:30px 25px; text-align:center;'>"
+            + "<img src='https://anucentralcollege.com/og-image.jpg' "
+            + "alt='Central College Anuradhapura Logo' "
+            + "style='width:85px; height:85px; border-radius:50%; "
+            + "background-color:#ffffff; padding:6px; "
+            + "border:3px solid #D4AF37;'>"
+            + "<h1 style='margin:15px 0 5px 0; color:#ffffff; font-size:24px; letter-spacing:0.5px;'>"
+            + "CENTRAL COLLEGE ANURADHAPURA"
+            + "</h1>"
+            + "<p style='margin:0; color:#F5D76E; font-size:14px; font-weight:bold; letter-spacing:0.5px;'>"
+            + "STUDENT MANAGEMENT SYSTEM"
+            + "</p>"
+            + "</td>"
+            + "</tr>"
+
+            // =====================================================
+            // GOLD LINE
+            // =====================================================
+            + "<tr>"
+            + "<td style='height:5px; background-color:#D4AF37;'></td>"
+            + "</tr>"
+
+            // =====================================================
+            // GREETING / TITLE
+            // =====================================================
+            + "<tr>"
+            + "<td style='padding:35px 40px 10px 40px;'>"
+            + "<p style='margin:0 0 12px 0; font-size:16px;'>"
+            + "Dear <strong style='color:#006B3C;'>" + name + "</strong>,"
+            + "</p>"
+            + "<h2 style='margin:0 0 15px 0; color:#B02A37; font-size:23px;'>"
+            + "Student Account Removed"
+            + "</h2>"
+            + "<p style='margin:0; color:#555555; font-size:15px; line-height:1.7;'>"
+            + "We are writing to inform you that your student account has been removed from the "
+            + "<strong>Central College Anuradhapura Student Management System</strong>."
+            + "</p>"
+            + "</td>"
+            + "</tr>"
+
+            // =====================================================
+            // DELETED ACCOUNT BOX
+            // =====================================================
+            + "<tr>"
+            + "<td style='padding:20px 40px;'>"
+            + "<div style='background-color:#FFF4F4; border:1px solid #F1C6C6; "
+            + "border-left:5px solid #B02A37; border-radius:7px; padding:20px;'>"
+            + "<p style='margin:0; font-size:12px; color:#777777; font-weight:bold; letter-spacing:1px;'>"
+            + "ACCOUNT STATUS"
+            + "</p>"
+            + "<p style='margin:7px 0 0 0; font-size:21px; font-weight:bold; color:#B02A37;'>"
+            + "✕ Account Deleted"
+            + "</p>"
+            + "</div>"
+            + "</td>"
+            + "</tr>"
+
+            // =====================================================
+            // ACCOUNT DETAILS
+            // =====================================================
+            + "<tr>"
+            + "<td style='padding:5px 40px 12px 40px;'>"
+            + "<h3 style='margin:0; color:#006B3C; font-size:18px;'>"
+            + "Deleted Account Details"
+            + "</h3>"
+            + "<div style='width:45px; height:3px; background-color:#D4AF37; margin-top:7px;'></div>"
+            + "</td>"
+            + "</tr>"
+
+            // =====================================================
+            // DETAILS TABLE (අලුතින් Date & Time එකතු කර ඇත)
+            // =====================================================
+            + "<tr>"
+            + "<td style='padding:5px 40px 25px 40px;'>"
+            + "<table width='100%' cellpadding='0' cellspacing='0' style='border-collapse:collapse; font-size:14px;'>"
+
+            // Student ID
+            + "<tr>"
+            + "<td style='padding:12px; background-color:#F5F9F6; border-bottom:1px solid #E4EAE6; width:40%; font-weight:bold; color:#365443;'>"
+            + "Student ID"
+            + "</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #E4EAE6; font-weight:bold; color:#B02A37;'>"
+            + studentId
+            + "</td>"
+            + "</tr>"
+
+            // Student Name
+            + "<tr>"
+            + "<td style='padding:12px; background-color:#F5F9F6; border-bottom:1px solid #E4EAE6; font-weight:bold; color:#365443;'>"
+            + "Student Name"
+            + "</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #E4EAE6;'>"
+            + name
+            + "</td>"
+            + "</tr>"
+
+            // Date & Time of Deletion (මෙය අලුතින් එකතු කරන ලදි)
+            + "<tr>"
+            + "<td style='padding:12px; background-color:#F5F9F6; border-bottom:1px solid #E4EAE6; font-weight:bold; color:#365443;'>"
+            + "Date & Time of Deletion"
+            + "</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #E4EAE6; color:#555555;'>"
+            + deletionDateTime
+            + "</td>"
+            + "</tr>"
+
+            // Account Status
+            + "<tr>"
+            + "<td style='padding:12px; background-color:#F5F9F6; font-weight:bold; color:#365443;'>"
+            + "Account Status"
+            + "</td>"
+            + "<td style='padding:12px; color:#B02A37; font-weight:bold;'>"
+            + "Deleted"
+            + "</td>"
+            + "</tr>"
+            + "</table>"
+            + "</td>"
+            + "</tr>"
+
+            // =====================================================
+            // IMPORTANT NOTICE
+            // =====================================================
+            + "<tr>"
+            + "<td style='padding:0 40px 25px 40px;'>"
+            + "<div style='background-color:#FFF9E8; border:1px solid #E8D58A; border-left:5px solid #D4AF37; border-radius:7px; padding:18px 20px;'>"
+            + "<h3 style='margin:0 0 10px 0; color:#6B5200; font-size:16px;'>"
+            + "Important Information"
+            + "</h3>"
+            + "<p style='margin:0; color:#665A35; font-size:13px; line-height:1.7;'>"
+            + "Your student account is no longer active in the school Student Management System. You will no longer be able to access the system using this account."
+            + "</p>"
+            + "</div>"
+            + "</td>"
+            + "</tr>"
+
+            // =====================================================
+            // SECURITY / CONTACT NOTICE
+            // =====================================================
+            + "<tr>"
+            + "<td style='padding:0 40px 25px 40px;'>"
+            + "<div style='background-color:#F4F9F6; border-left:4px solid #006B3C; padding:15px 18px; border-radius:5px;'>"
+            + "<p style='margin:0; color:#4B5B51; font-size:13px; line-height:1.6;'>"
+            + "<strong style='color:#006B3C;'>Did you not expect this?</strong><br>"
+            + "If you believe this account was removed by mistake or without proper authorization, please contact the school administration office or IT department immediately."
+            + "</p>"
+            + "</div>"
+            + "</td>"
+            + "</tr>"
+
+            // =====================================================
+            // SUPPORT & CLOSING
+            // =====================================================
+            + "<tr>"
+            + "<td style='padding:0 40px 25px 40px;'>"
+            + "<p style='margin:0; font-size:13px; color:#666666; line-height:1.7;'>"
+            + "For further assistance regarding your student account, please contact the Central College Anuradhapura administration office."
+            + "</p>"
+            + "</td>"
+            + "</tr>"
+            + "<tr>"
+            + "<td style='padding:5px 40px 30px 40px;'>"
+            + "<p style='margin:0; font-size:14px; color:#555555; line-height:1.7;'>"
+            + "Thank you for your understanding."
+            + "</p>"
+            + "<p style='margin:15px 0 0 0; font-size:14px; line-height:1.7;'>"
+            + "Sincerely,<br>"
+            + "<strong style='color:#006B3C;'>The Administration</strong><br>"
+            + "Central College Anuradhapura"
+            + "</p>"
+            + "</td>"
+            + "</tr>"
+
+            // =====================================================
+            // FOOTER
+            // =====================================================
+            + "<tr>"
+            + "<td style='background-color:#004D2C; border-top:4px solid #D4AF37; padding:22px 30px; text-align:center;'>"
+            + "<p style='margin:0 0 6px 0; color:#ffffff; font-size:13px; font-weight:bold;'>"
+            + "CENTRAL COLLEGE ANURADHAPURA"
+            + "</p>"
+            + "<p style='margin:0; color:#C8DED3; font-size:11px;'>"
+            + "Student Management System"
+            + "</p>"
+            + "<p style='margin:8px 0 0 0; color:#A9C7B8; font-size:10px;'>"
+            + "This is an automated email. Please do not reply directly to this message."
+            + "</p>"
+            + "</td>"
+            + "</tr>"
+
+            // =====================================================
+            // END
+            // =====================================================
+            + "</table>"
+            + "</div>"
+            + "</body>"
+            + "</html>";
+            
+            message.setContent(emailBody, "text/html; charset=utf-8");
+            javax.mail.Transport.send(message);
+            System.out.println("Delete Email Sent to: " + email);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

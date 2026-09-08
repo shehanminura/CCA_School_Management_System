@@ -51,8 +51,4 @@ public class DateandTimeConnection {
         return LocalDateTime.now().format(dateTimeFormatter);
     }
     
-    // Database SQL Queries 
-    public java.sql.Timestamp getCurrentSQLTimestamp() {
-        return java.sql.Timestamp.valueOf(LocalDateTime.now());
-    }
 }
