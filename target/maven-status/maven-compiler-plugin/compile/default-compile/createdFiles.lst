@@ -3,6 +3,7 @@ View\DashbordAdmin$1.class
 View\DashbordAdmin$8.class
 View\AdminAddStuPanel.class
 View\DashbordTeacher$6.class
+ExcelExportConnection\ExcelExportService.class
 Controller\AdminStudentController.class
 View\Startview$1.class
 View\DashbordAdmin$5.class

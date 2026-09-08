@@ -10,7 +10,8 @@ public class StudentEntity {
     private String gender;
     private String password;
     private String status;
-
+    private String registrationDate;
+    
     public StudentEntity() {}
 
     public StudentEntity(String studentId, String name, String birthday, String contactNumber, String email, String address, String gender, String password, String status) {
@@ -44,4 +45,10 @@ public class StudentEntity {
     public void setPassword(String password) { this.password = password; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+    public String getRegistrationDate() {
+        return registrationDate;
+    }
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
+    }
 }

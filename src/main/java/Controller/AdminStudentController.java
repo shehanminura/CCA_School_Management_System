@@ -198,4 +198,33 @@ public class AdminStudentController {
             }
         }
     }
+    // --- Export Data to Excel (Using ExcelExportService) ---
+    public void exportToExcel() {
+        // Headers
+        String headers = "Student ID,Full Name,Birthday,Contact Number,Email,Address,Gender,Account Status,Registration Date";     
+        java.util.List<String> dataRows = new java.util.ArrayList<>();
+        java.util.List<Model.entity.StudentEntity> students = dao.getAllStudents();
+        
+        for(Model.entity.StudentEntity s : students) {
+            String cleanAddress = s.getAddress().replace(",", " ");
+            
+            //Create Student Details a single row
+           String row = s.getStudentId() + "," + 
+                         s.getName() + "," + 
+                         s.getBirthday() + "," + 
+                         s.getContactNumber() + "," + 
+                         s.getEmail() + "," + 
+                         cleanAddress + "," + 
+                         s.getGender() + "," + 
+                         s.getStatus() + "," + 
+                         s.getRegistrationDate();
+                         
+            dataRows.add(row);
+        }
+        
+        // send data ExcelExportConnection class for make file.
+        ExcelExportConnection.ExcelExportService.exportToCSV(view, "Students_Report.csv", headers, dataRows);
+    }
+        
+    
 }

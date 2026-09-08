@@ -68,7 +68,7 @@ public class AdminStudentDAO {
             }
 
             // Step 2: `student` table එකට Data දැමීම
-            String currentDateTime = DateandTimeConnection.getInstance().getCurrentDateTime();
+            String currentDate = DateandTimeConnection.getInstance().getCurrentDate();
             
             String studentQuery = "INSERT INTO student (student_id, user_id, name, birthday, contact_number, address, gender, registration_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement studentPst = con.prepareStatement(studentQuery);
@@ -79,7 +79,7 @@ public class AdminStudentDAO {
             studentPst.setString(5, student.getContactNumber());
             studentPst.setString(6, student.getAddress());
             studentPst.setString(7, student.getGender());
-            studentPst.setString(8, currentDateTime);
+            studentPst.setString(8, currentDate);
 
             int studentAffected = studentPst.executeUpdate();
             if (studentAffected > 0) {
@@ -106,18 +106,19 @@ public class AdminStudentDAO {
 // 3. Load Data for JTable
     public List<StudentEntity> getAllStudents() {
         List<StudentEntity> students = new ArrayList<>();
-        String query = "SELECT s.student_id, s.name, s.birthday, s.contact_number, u.email, s.address, s.gender, u.password, u.status " +
+      String query = "SELECT s.student_id, s.name, s.birthday, s.contact_number, u.email, s.address, s.gender, u.password, u.status, s.registration_date " +
                        "FROM student s JOIN users u ON s.user_id = u.user_id";
 
         try {
-            // Connection එක try වරහන් වලින් එළියට ගෙන ඇත 
+            // Connection DataBases
             Connection con = DBConnection.getInstance().getConnection();
             
             try (Statement stm = con.createStatement();
                  ResultSet rst = stm.executeQuery(query)) {
 
                 while (rst.next()) {
-                    students.add(new StudentEntity(
+                    //  Entity 
+                    StudentEntity student = new StudentEntity(
                         rst.getString("student_id"),
                         rst.getString("name"),
                         rst.getString("birthday"),
@@ -127,7 +128,12 @@ public class AdminStudentDAO {
                         rst.getString("gender"),
                         rst.getString("password"),
                         rst.getString("status")
-                    ));
+                    );
+                    
+                    // 
+                    student.setRegistrationDate(rst.getString("registration_date"));
+                    
+                    students.add(student);
                 }
             }
         } catch (Exception e) {
