@@ -54,7 +54,7 @@ public class AdminAddStuPanel extends javax.swing.JPanel {
         jBtnadd = new javax.swing.JButton();
         jbtndelete = new javax.swing.JButton();
         jbtnupdate = new javax.swing.JButton();
-        jbtnreport = new javax.swing.JButton();
+        jbtnEXreport = new javax.swing.JButton();
         jComboBoxstatus = new javax.swing.JComboBox<>();
         jbtnseartch = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -65,6 +65,7 @@ public class AdminAddStuPanel extends javax.swing.JPanel {
         txtsertchid = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtclear = new javax.swing.JButton();
+        jbtnPDFreport = new javax.swing.JButton();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -138,12 +139,12 @@ public class AdminAddStuPanel extends javax.swing.JPanel {
         jbtnupdate.setText("Update");
         jbtnupdate.addActionListener(this::jbtnupdateActionPerformed);
 
-        jbtnreport.setBackground(new java.awt.Color(102, 0, 102));
-        jbtnreport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jbtnreport.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnreport.setText("Get Reoprt");
-        jbtnreport.setToolTipText("");
-        jbtnreport.addActionListener(this::jbtnreportActionPerformed);
+        jbtnEXreport.setBackground(new java.awt.Color(0, 153, 0));
+        jbtnEXreport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbtnEXreport.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnEXreport.setText("Get Excel Reoprt");
+        jbtnEXreport.setToolTipText("");
+        jbtnEXreport.addActionListener(this::jbtnEXreportActionPerformed);
 
         jComboBoxstatus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jComboBoxstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Deactivated" }));
@@ -180,76 +181,83 @@ public class AdminAddStuPanel extends javax.swing.JPanel {
         txtclear.setText("Clear");
         txtclear.addActionListener(this::txtclearActionPerformed);
 
+        jbtnPDFreport.setBackground(new java.awt.Color(255, 51, 51));
+        jbtnPDFreport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbtnPDFreport.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnPDFreport.setText("Get PDF Reoprt");
+        jbtnPDFreport.setToolTipText("");
+        jbtnPDFreport.addActionListener(this::jbtnPDFreportActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7)
+                            .addComponent(jlbregistrationdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
+                            .addComponent(stuid)
+                            .addComponent(jLabel10)
+                            .addComponent(jComboBoxgender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jlbregistrationdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(stuid)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jComboBoxgender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jbtnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jbtnseartch, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtsertchid, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jBtnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jbtndelete, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel12))))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBoxstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel11))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jTxtname, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel5))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jbtnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jbtnseartch, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txtsertchid, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jBtnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jbtndelete, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel12))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel3)
-                                                    .addComponent(jTxtname, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel5))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(18, 18, 18)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jTxtbirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jLabel6)))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(12, 12, 12)
-                                                        .addComponent(jLabel8))))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jTxtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jTxtpsw, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jTxtbirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel6)))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jTxtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(12, 12, 12)
-                                                .addComponent(txtclear))
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jTxtCnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(jbtnreport, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jLabel8))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTxtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTxtpsw, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTxtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(txtclear))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jTxtCnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jbtnEXreport, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jbtnPDFreport, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -313,7 +321,9 @@ public class AdminAddStuPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jbtnreport, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnEXreport, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnPDFreport, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -330,10 +340,10 @@ public class AdminAddStuPanel extends javax.swing.JPanel {
         controller.updateStudent();
     }//GEN-LAST:event_jbtnupdateActionPerformed
 
-    private void jbtnreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnreportActionPerformed
+    private void jbtnEXreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEXreportActionPerformed
        controller.exportToExcel();
        
-    }//GEN-LAST:event_jbtnreportActionPerformed
+    }//GEN-LAST:event_jbtnEXreportActionPerformed
 
     private void jComboBoxstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxstatusActionPerformed
         // TODO add your handling code here:
@@ -353,6 +363,10 @@ public class AdminAddStuPanel extends javax.swing.JPanel {
          setCurrentdate();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtclearActionPerformed
+
+    private void jbtnPDFreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPDFreportActionPerformed
+        controller.exportToPDF();        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnPDFreportActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -378,8 +392,9 @@ public class AdminAddStuPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTxtemail;
     private javax.swing.JTextField jTxtname;
     private javax.swing.JTextField jTxtpsw;
+    private javax.swing.JButton jbtnEXreport;
+    private javax.swing.JButton jbtnPDFreport;
     private javax.swing.JButton jbtndelete;
-    private javax.swing.JButton jbtnreport;
     private javax.swing.JButton jbtnseartch;
     private javax.swing.JButton jbtnupdate;
     private javax.swing.JLabel jlbregistrationdate;

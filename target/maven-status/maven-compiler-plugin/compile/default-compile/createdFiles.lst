@@ -24,6 +24,7 @@ View\DashbordStudent$6.class
 View\Startview.class
 MailConnection\MailConnection$1.class
 View\DashbordTeacher$1.class
+PdfExportConnection\PdfExportConnection.class
 View\DashbordAdmin$3.class
 View\DashbordStudent$3.class
 View\DashbordTeacher$4.class

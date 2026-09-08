@@ -68,8 +68,7 @@ public class AdminStudentDAO {
             }
 
             // Step 2: `student` table එකට Data දැමීම
-            String currentDate = DateandTimeConnection.getInstance().getCurrentDate();
-            
+            String currentDateTime = DateandTimeConnection.getInstance().getCurrentDateTime();            
             String studentQuery = "INSERT INTO student (student_id, user_id, name, birthday, contact_number, address, gender, registration_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement studentPst = con.prepareStatement(studentQuery);
             studentPst.setString(1, student.getStudentId());
@@ -79,7 +78,7 @@ public class AdminStudentDAO {
             studentPst.setString(5, student.getContactNumber());
             studentPst.setString(6, student.getAddress());
             studentPst.setString(7, student.getGender());
-            studentPst.setString(8, currentDate);
+            studentPst.setString(8, currentDateTime);
 
             int studentAffected = studentPst.executeUpdate();
             if (studentAffected > 0) {

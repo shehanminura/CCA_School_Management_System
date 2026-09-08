@@ -225,6 +225,115 @@ public class AdminStudentController {
         // send data ExcelExportConnection class for make file.
         ExcelExportConnection.ExcelExportService.exportToCSV(view, "Students_Report.csv", headers, dataRows);
     }
+        // --- Export Data to PDF (Using Singleton PdfExportConnection) ---
+    // --- Export Data to PDF (Using HTML Template) ---
+// --- Export Data to PDF (Using Professional HTML Template with Logo) ---
+    public void exportToPDF() {
         
-    
+        StringBuilder htmlBuilder = new StringBuilder();
+        
+        // 1. Document Setup & CSS Styles (පිරිසිදු CSS භාවිතය)
+        htmlBuilder.append("<!DOCTYPE html>");
+        htmlBuilder.append("<html><head><style>")
+                   .append("body { font-family: Helvetica, Arial, sans-serif; color: #333333; } ")
+                   .append("table { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 10px; } ")
+                   .append("th { background-color: #006B3C; color: #ffffff; padding: 10px; border: 1px solid #005530; text-align: left; } ")
+                   .append("td { padding: 8px; border: 1px solid #dddddd; } ")
+                   .append(".even-row { background-color: #F5F9F6; } ")
+                   .append(".odd-row { background-color: #ffffff; } ")
+                   .append(".status-active { color: #008000; font-weight: bold; } ")
+                   .append(".status-inactive { color: #d9534f; font-weight: bold; } ")
+                   .append("</style></head><body>");
+        
+        // 2. Header Section (Logo එක සහ මාතෘකා)
+        htmlBuilder.append("<div style='text-align: center; margin-bottom: 25px;'>");
+        
+        // Logo (XMLWorker සඳහා <img ... /> ලෙස අනිවාර්යයෙන්ම වසා තිබිය යුතුය)
+        htmlBuilder.append("<img src='https://anucentralcollege.com/og-image.jpg' width='85' height='85' />");
+        
+        htmlBuilder.append("<h1 style='color: #006B3C; margin: 10px 0 2px 0; font-size: 24px; letter-spacing: 1px;'>")
+                   .append("CENTRAL COLLEGE ANURADHAPURA</h1>");
+        
+        htmlBuilder.append("<h3 style='color: #666666; margin: 0; font-size: 14px; text-transform: uppercase;'>")
+                   .append("Official Student Registration Report</h3>");
+        
+        // රත්තරන් පාට ඉර (Horizontal Rule)
+        htmlBuilder.append("<hr style='border: 0; border-bottom: 2px solid #D4AF37; margin-top: 15px;' />");
+        htmlBuilder.append("</div>");
+        
+        // 3. Table Section
+        htmlBuilder.append("<table>");
+        
+        // Table Headers
+        htmlBuilder.append("<tr>")
+                   .append("<th>Student ID</th>")
+                   .append("<th>Full Name</th>")
+                   .append("<th>Birthday</th>")
+                   .append("<th>Contact</th>")
+                   .append("<th>Email</th>")
+                   .append("<th>Address</th>")
+                   .append("<th>Gender</th>")
+                   .append("<th>Status</th>")
+                   .append("<th>Reg. Date</th>")
+                   .append("</tr>");
+
+        // Database Data (දත්ත ගෙන ඒම)
+        java.util.List<Model.entity.StudentEntity> students = dao.getAllStudents();
+        boolean isEvenRow = false;
+        
+        for(Model.entity.StudentEntity s : students) {
+            // CSS Class මාරු කිරීම (Zebra Striping)
+            String rowClass = isEvenRow ? "even-row" : "odd-row";
+            
+            htmlBuilder.append("<tr class='").append(rowClass).append("'>");
+            
+            htmlBuilder.append("<td style='color: #B02A37; font-weight: bold;'>").append(s.getStudentId()).append("</td>");
+            htmlBuilder.append("<td>").append(s.getName()).append("</td>");
+            htmlBuilder.append("<td>").append(s.getBirthday()).append("</td>");
+            htmlBuilder.append("<td>").append(s.getContactNumber()).append("</td>");
+            htmlBuilder.append("<td>").append(s.getEmail()).append("</td>");
+            htmlBuilder.append("<td>").append(s.getAddress()).append("</td>");
+            htmlBuilder.append("<td>").append(s.getGender()).append("</td>");
+            
+            // Status එකට අනුව කොළ හෝ රතු CSS Class එක දැමීම
+            String statusClass = s.getStatus().equalsIgnoreCase("Active") ? "status-active" : "status-inactive";
+            htmlBuilder.append("<td class='").append(statusClass).append("'>").append(s.getStatus()).append("</td>");
+            
+            htmlBuilder.append("<td>").append(s.getRegistrationDate()).append("</td>");
+            htmlBuilder.append("</tr>");
+            
+            isEvenRow = !isEvenRow; // ඊළඟ පේළියට වර්ණය මාරු කිරීම
+        }
+        
+        htmlBuilder.append("</table>");
+        
+        // 4. Official System Note Section (නිල සටහන)
+        htmlBuilder.append("<div style='margin-top: 25px; padding: 12px 15px; background-color: #F8F9FA; border-left: 4px solid #006B3C;'>");
+        htmlBuilder.append("<p style='font-size: 11px; color: #444444; margin: 0; line-height: 1.6;'>");
+        htmlBuilder.append("<strong style='color: #006B3C;'>OFFICIAL SYSTEM NOTIFICATION:</strong><br/>");
+        htmlBuilder.append("This is a computer-generated official report produced by the Central College Anuradhapura Student Management System. ");
+        htmlBuilder.append("As an electronically generated document, it does not require a physical signature or stamp for validation. ");
+        htmlBuilder.append("Any discrepancies should be reported to the system administration immediately.");
+        htmlBuilder.append("</p>");
+        htmlBuilder.append("</div>");
+        
+        // Current Date
+        String currentdate=DateandTimeConnection.DateandTimeConnection.getInstance().getCurrentDate();
+        
+        // 5. Footer Section (යටින් වැටෙන අකුරු ටික)
+        htmlBuilder.append("<div style='margin-top: 30px; border-top: 1px solid #eeeeee; padding-top: 10px; text-align: center;'>");
+        htmlBuilder.append("<p style='font-size: 10px; color: #888888; margin: 0;'>");
+        htmlBuilder.append("Generated by Central College Anuradhapura Student Management System | " + currentdate);
+        htmlBuilder.append("</p>");
+        htmlBuilder.append("</div>");
+        
+        htmlBuilder.append("</body></html>");
+        
+        // 5. PDF Export Connection (Singleton) හරහා ජෙනරේට් කිරීම
+        PdfExportConnection.PdfExportConnection.getInstance().exportHTMLtoPDF(
+            view, 
+            "Students_Official_Report.pdf", 
+            htmlBuilder.toString()
+        );
+    }
 }
