@@ -17,6 +17,7 @@ View\DashbordTeacher$2.class
 DateandTimeConnection\DateandTimeConnection.class
 Model\dao\AdminStudentDAO.class
 View\DashbordAdmin$4.class
+Model\entity\ClassEntity.class
 Model\dto\StudentDto.class
 View\DashbordTeacher$5.class
 View\DashbordTeacher$8.class
@@ -33,6 +34,7 @@ View\DashbordAdmin$2.class
 DBConnection\DBConnection.class
 View\DashbordStudent$4.class
 View\DashbordAdmin.class
+Model\dao\AdminClassDAO.class
 View\DashbordStudent.class
 View\DashbordTeacher$7.class
 View\DashbordTeacher$3.class

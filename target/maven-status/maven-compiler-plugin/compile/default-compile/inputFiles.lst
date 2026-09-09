@@ -6,10 +6,12 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\DBConnection\DBConnection.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\ExcelExportConnection\ExcelExportService.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\MailConnection\MailConnection.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminClassDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminStudentDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\LoginDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dto\LoginDto.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dto\StudentDto.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\entity\ClassEntity.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\entity\StudentEntity.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\entity\UserEntity.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\PdfExportConnection\PdfExportConnection.java

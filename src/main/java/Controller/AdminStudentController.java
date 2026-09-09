@@ -28,7 +28,11 @@ public class AdminStudentController {
     public void addStudent() {
         StudentDto dto = view.getStudentData();
         
-        // Empty Field Validation
+        if (dto.getClassId() == null || dto.getClassId().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(view, "Please select a valid Class from the list!", "Validation Error", JOptionPane.WARNING_MESSAGE);
+            return; 
+        }
+        
         if (dto.getName().trim().isEmpty() || 
             dto.getBirthday().trim().isEmpty() || 
             dto.getContactNumber().trim().isEmpty() || 
@@ -40,40 +44,36 @@ public class AdminStudentController {
             return; 
         }
 
-        // Name Validation
         if (!dto.getName().matches("^[a-zA-Z\\s]+$")) {
             JOptionPane.showMessageDialog(view, "Invalid Name! The name can only contain letters and spaces.", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // 3.Birthday Validation) - YYYY-MM-DD
         if (!isValidDate(dto.getBirthday())) {
             JOptionPane.showMessageDialog(view, "Invalid Birthday! Please enter a valid date in YYYY-MM-DD format (e.g. 2005-01-25).", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Contact Number Validation
         if (!dto.getContactNumber().matches("^\\d{10}$")) {
             JOptionPane.showMessageDialog(view, "Invalid Contact Number! Please enter a valid 10-digit phone number.", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Email Validation
         if (!dto.getEmail().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
             JOptionPane.showMessageDialog(view, "Invalid Email Address! Please enter a valid email (e.g. example@gmail.com).", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        //if Validations Sucessfull pass data to database
         StudentEntity entity = new StudentEntity(
             dto.getStudentId(), dto.getName(), dto.getBirthday(), dto.getContactNumber(), 
             dto.getEmail(), dto.getAddress(), dto.getGender(), dto.getPassword(), dto.getStatus()
         );
         
+        entity.setClassId(dto.getClassId());
+        
         if (dao.addStudent(entity)) {
             JOptionPane.showMessageDialog(view, "Student Added Successfully!");
             
-            // Pass data to mail method
             new Thread(() -> {
                 AddStuEmailService.sendWelcomeEmail(dto);
             }).start();
@@ -86,13 +86,10 @@ public class AdminStudentController {
         }
     }
 
-    //  Date Validation
     private boolean isValidDate(String date) {
-        // date format validation YYYY-MM-DD 
         if (!date.matches("^\\d{4}-\\d{2}-\\d{2}$")) {
             return false;
         }
-        // chick it real time date
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         sdf.setLenient(false);
         try {
@@ -108,17 +105,16 @@ public class AdminStudentController {
         DefaultTableModel model = (DefaultTableModel) view.getTable().getModel();
         model.setRowCount(0); 
         
-        model.setColumnIdentifiers(new Object[]{"Student ID", "Name", "Contact", "Email", "Gender", "Status"});
+        model.setColumnIdentifiers(new Object[]{"Student ID", "Name", "Contact", "Email", "Gender", "Class", "Status"});
         
         for (StudentEntity s : students) {
             model.addRow(new Object[]{
-                s.getStudentId(), s.getName(), s.getContactNumber(), s.getEmail(), s.getGender(), s.getStatus()
+                s.getStudentId(), s.getName(), s.getContactNumber(), s.getEmail(), s.getGender(), s.getClassName(), s.getStatus()
             });
         }
     }
-// Search Student
+
     public void searchStudent() {
-        // getSearchId
         String searchId = view.getSearchId(); 
         
         if (searchId == null || searchId.trim().isEmpty()) {
@@ -126,35 +122,32 @@ public class AdminStudentController {
             return;
         }
         
-        //seartch student id from ID Database 
         StudentEntity student = dao.searchStudent(searchId.trim()); 
         
         if (student != null) {
             StudentDto dto = new StudentDto(
                 student.getStudentId(), student.getName(), student.getBirthday(), student.getContactNumber(),
-                student.getEmail(), student.getAddress(), student.getGender(), student.getPassword(), student.getStatus()
+                student.getEmail(), student.getAddress(), student.getGender(), student.getClassId(), student.getPassword(), student.getStatus()
             );
             
-            // Send data to View Fields 
             view.setStudentData(dto); 
             javax.swing.JOptionPane.showMessageDialog(view, "Student Record Found!");
             
         } else {
             javax.swing.JOptionPane.showMessageDialog(view, "Student Not Found!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             view.clearFields();
-            view.loadAutoGeneratedId(); // generate auto id
+            view.loadAutoGeneratedId(); 
         }
     }
 
-    // 2. Update Student
     public void updateStudent() {
         StudentDto dto = view.getStudentData();
-        // (මෙහිදීද Add එකේ මෙන් හිස්තැන් සහ Regex Validation එකතු කරගන්න)
         
         StudentEntity entity = new StudentEntity(
             dto.getStudentId(), dto.getName(), dto.getBirthday(), dto.getContactNumber(), 
             dto.getEmail(), dto.getAddress(), dto.getGender(), dto.getPassword(), dto.getStatus()
         );
+        entity.setClassId(dto.getClassId());
         
         if (dao.updateStudent(entity)) {
             JOptionPane.showMessageDialog(view, "Student Updated Successfully!");
@@ -167,16 +160,12 @@ public class AdminStudentController {
         }
     }
 
-    // 3. Delete Student
     public void deleteStudent() {
-        // get ID using form student id label
-         String studentId = view.getStudentData().getStudentId();
-        
-        //get all student details use foe email
+        String studentId = view.getStudentData().getStudentId();
         StudentEntity student = dao.searchStudent(studentId);
         
         if (student == null) {
-            JOptionPane.showMessageDialog(view, "Student Not Found to Delete!", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(view, "Student not found! Please search and confirm the student before attempting to delete.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -185,7 +174,6 @@ public class AdminStudentController {
             if (dao.deleteStudent(studentId)) {
                 JOptionPane.showMessageDialog(view, "Student Deleted Successfully!");
                 
-                // Send Email
                 String email = student.getEmail();
                 String name = student.getName();
                 new Thread(() -> AddStuEmailService.sendDeleteEmail(email, name, studentId)).start();
@@ -198,41 +186,38 @@ public class AdminStudentController {
             }
         }
     }
-    // --- Export Data to Excel (Using ExcelExportService) ---
+
+    // --- Export Data to Excel ---
     public void exportToExcel() {
-        // Headers
-        String headers = "Student ID,Full Name,Birthday,Contact Number,Email,Address,Gender,Account Status,Registration Date";     
+        String headers = "Student ID,Full Name,Birthday,Contact Number,Email,Address,Gender,Class,Account Status,Registration Date";     
         java.util.List<String> dataRows = new java.util.ArrayList<>();
         java.util.List<Model.entity.StudentEntity> students = dao.getAllStudents();
         
         for(Model.entity.StudentEntity s : students) {
             String cleanAddress = s.getAddress().replace(",", " ");
             
-            //Create Student Details a single row
-           String row = s.getStudentId() + "," + 
+            // වෙනස: getClassId වෙනුවට getClassName භාවිතා කර ඇත
+            String className = s.getClassName() != null ? s.getClassName() : "-"; 
+            
+            String row = s.getStudentId() + "," + 
                          s.getName() + "," + 
                          s.getBirthday() + "," + 
                          s.getContactNumber() + "," + 
                          s.getEmail() + "," + 
                          cleanAddress + "," + 
                          s.getGender() + "," + 
+                         className + "," + 
                          s.getStatus() + "," + 
                          s.getRegistrationDate();
                          
             dataRows.add(row);
         }
-        
-        // send data ExcelExportConnection class for make file.
         ExcelExportConnection.ExcelExportService.exportToCSV(view, "Students_Report.csv", headers, dataRows);
     }
-        // --- Export Data to PDF (Using Singleton PdfExportConnection) ---
-    // --- Export Data to PDF (Using HTML Template) ---
-// --- Export Data to PDF (Using Professional HTML Template with Logo) ---
+    
+    // --- Export Data to PDF ---
     public void exportToPDF() {
-        
         StringBuilder htmlBuilder = new StringBuilder();
-        
-        // 1. Document Setup & CSS Styles (පිරිසිදු CSS භාවිතය)
         htmlBuilder.append("<!DOCTYPE html>");
         htmlBuilder.append("<html><head><style>")
                    .append("body { font-family: Helvetica, Arial, sans-serif; color: #333333; } ")
@@ -245,26 +230,16 @@ public class AdminStudentController {
                    .append(".status-inactive { color: #d9534f; font-weight: bold; } ")
                    .append("</style></head><body>");
         
-        // 2. Header Section (Logo එක සහ මාතෘකා)
         htmlBuilder.append("<div style='text-align: center; margin-bottom: 25px;'>");
-        
-        // Logo (XMLWorker සඳහා <img ... /> ලෙස අනිවාර්යයෙන්ම වසා තිබිය යුතුය)
         htmlBuilder.append("<img src='https://anucentralcollege.com/og-image.jpg' width='85' height='85' />");
-        
         htmlBuilder.append("<h1 style='color: #006B3C; margin: 10px 0 2px 0; font-size: 24px; letter-spacing: 1px;'>")
                    .append("CENTRAL COLLEGE ANURADHAPURA</h1>");
-        
         htmlBuilder.append("<h3 style='color: #666666; margin: 0; font-size: 14px; text-transform: uppercase;'>")
                    .append("Official Student Registration Report</h3>");
-        
-        // රත්තරන් පාට ඉර (Horizontal Rule)
         htmlBuilder.append("<hr style='border: 0; border-bottom: 2px solid #D4AF37; margin-top: 15px;' />");
         htmlBuilder.append("</div>");
         
-        // 3. Table Section
         htmlBuilder.append("<table>");
-        
-        // Table Headers
         htmlBuilder.append("<tr>")
                    .append("<th>Student ID</th>")
                    .append("<th>Full Name</th>")
@@ -273,18 +248,16 @@ public class AdminStudentController {
                    .append("<th>Email</th>")
                    .append("<th>Address</th>")
                    .append("<th>Gender</th>")
+                   .append("<th>Class</th>")
                    .append("<th>Status</th>")
                    .append("<th>Reg. Date</th>")
                    .append("</tr>");
 
-        // Database Data (දත්ත ගෙන ඒම)
         java.util.List<Model.entity.StudentEntity> students = dao.getAllStudents();
         boolean isEvenRow = false;
         
         for(Model.entity.StudentEntity s : students) {
-            // CSS Class මාරු කිරීම (Zebra Striping)
             String rowClass = isEvenRow ? "even-row" : "odd-row";
-            
             htmlBuilder.append("<tr class='").append(rowClass).append("'>");
             
             htmlBuilder.append("<td style='color: #B02A37; font-weight: bold;'>").append(s.getStudentId()).append("</td>");
@@ -295,19 +268,21 @@ public class AdminStudentController {
             htmlBuilder.append("<td>").append(s.getAddress()).append("</td>");
             htmlBuilder.append("<td>").append(s.getGender()).append("</td>");
             
-            // Status එකට අනුව කොළ හෝ රතු CSS Class එක දැමීම
+            // වෙනස: getClassId වෙනුවට getClassName භාවිතා කර ඇත
+            String className = s.getClassName() != null ? s.getClassName() : "-";
+            htmlBuilder.append("<td>").append(className).append("</td>");
+            
             String statusClass = s.getStatus().equalsIgnoreCase("Active") ? "status-active" : "status-inactive";
             htmlBuilder.append("<td class='").append(statusClass).append("'>").append(s.getStatus()).append("</td>");
             
             htmlBuilder.append("<td>").append(s.getRegistrationDate()).append("</td>");
             htmlBuilder.append("</tr>");
             
-            isEvenRow = !isEvenRow; // ඊළඟ පේළියට වර්ණය මාරු කිරීම
+            isEvenRow = !isEvenRow; 
         }
         
         htmlBuilder.append("</table>");
         
-        // 4. Official System Note Section (නිල සටහන)
         htmlBuilder.append("<div style='margin-top: 25px; padding: 12px 15px; background-color: #F8F9FA; border-left: 4px solid #006B3C;'>");
         htmlBuilder.append("<p style='font-size: 11px; color: #444444; margin: 0; line-height: 1.6;'>");
         htmlBuilder.append("<strong style='color: #006B3C;'>OFFICIAL SYSTEM NOTIFICATION:</strong><br/>");
@@ -317,10 +292,8 @@ public class AdminStudentController {
         htmlBuilder.append("</p>");
         htmlBuilder.append("</div>");
         
-        // Current Date
-        String currentdate=DateandTimeConnection.DateandTimeConnection.getInstance().getCurrentDate();
+        String currentdate = DateandTimeConnection.DateandTimeConnection.getInstance().getCurrentDate();
         
-        // 5. Footer Section (යටින් වැටෙන අකුරු ටික)
         htmlBuilder.append("<div style='margin-top: 30px; border-top: 1px solid #eeeeee; padding-top: 10px; text-align: center;'>");
         htmlBuilder.append("<p style='font-size: 10px; color: #888888; margin: 0;'>");
         htmlBuilder.append("Generated by Central College Anuradhapura Student Management System | " + currentdate);
@@ -329,7 +302,6 @@ public class AdminStudentController {
         
         htmlBuilder.append("</body></html>");
         
-        // 5. PDF Export Connection (Singleton) හරහා ජෙනරේට් කිරීම
         PdfExportConnection.PdfExportConnection.getInstance().exportHTMLtoPDF(
             view, 
             "Students_Official_Report.pdf", 
