@@ -157,16 +157,18 @@ public class AdminController {
         ExcelExportConnection.ExcelExportService.exportToCSV(view, "Admins_Official_Report.csv", headers, dataRows);
     }
 
-   // --- Export Data to PDF (Admin Theme) ---
+   // Export Data to PDF 
     public void exportToPDF() {
         StringBuilder htmlBuilder = new StringBuilder();
         htmlBuilder.append("<!DOCTYPE html>");
         htmlBuilder.append("<html><head><style>")
                    .append("body { font-family: Helvetica, Arial, sans-serif; color: #333333; } ")
                    .append("table { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 10px; } ")
-                   .append("th { background-color: #2C3E50; color: #ffffff; padding: 10px; border: 1px solid #1A252C; text-align: left; } ")
+                   // මෙරූන් පැහැති Header එක
+                   .append("th { background-color: #7A1C2C; color: #ffffff; padding: 10px; border: 1px solid #5C1521; text-align: left; } ")
                    .append("td { padding: 8px; border: 1px solid #dddddd; } ")
-                   .append(".even-row { background-color: #F4F6F7; } ")
+                   // ලා මෙරූන්/රෝස මිශ්‍ර අළු පැහැයක් Even පේළි සඳහා
+                   .append(".even-row { background-color: #F9F2F4; } ")
                    .append(".odd-row { background-color: #ffffff; } ")
                    .append(".status-active { color: #008000; font-weight: bold; } ")
                    .append(".status-inactive { color: #d9534f; font-weight: bold; } ")
@@ -174,7 +176,8 @@ public class AdminController {
         
         htmlBuilder.append("<div style='text-align: center; margin-bottom: 25px;'>");
         htmlBuilder.append("<img src='https://anucentralcollege.com/og-image.jpg' width='85' height='85' />");
-        htmlBuilder.append("<h1 style='color: #2C3E50; margin: 10px 0 2px 0; font-size: 24px; letter-spacing: 1px;'>")
+        // මාතෘකාවටත් මෙරූන් පැහැය
+        htmlBuilder.append("<h1 style='color: #7A1C2C; margin: 10px 0 2px 0; font-size: 24px; letter-spacing: 1px;'>")
                    .append("CENTRAL COLLEGE ANURADHAPURA</h1>");
         htmlBuilder.append("<h3 style='color: #666666; margin: 0; font-size: 14px; text-transform: uppercase;'>")
                    .append("Official Executive Administrator Report</h3>");
@@ -203,7 +206,7 @@ public class AdminController {
             String rowClass = isEvenRow ? "even-row" : "odd-row";
             htmlBuilder.append("<tr class='").append(rowClass).append("'>");
             
-            htmlBuilder.append("<td style='color: #B02A37; font-weight: bold;'>").append(a.getAdminId()).append("</td>");
+            htmlBuilder.append("<td style='color: #7A1C2C; font-weight: bold;'>").append(a.getAdminId()).append("</td>");
             htmlBuilder.append("<td>").append(a.getName()).append("</td>");
             htmlBuilder.append("<td>").append(a.getNic()).append("</td>");
             htmlBuilder.append("<td>").append(a.getBirthday()).append("</td>");
@@ -224,9 +227,10 @@ public class AdminController {
         
         htmlBuilder.append("</table>");
         
-        htmlBuilder.append("<div style='margin-top: 25px; padding: 12px 15px; background-color: #F8F9FA; border-left: 4px solid #2C3E50;'>");
+        // Notification 
+        htmlBuilder.append("<div style='margin-top: 25px; padding: 12px 15px; background-color: #F8F9FA; border-left: 4px solid #7A1C2C;'>");
         htmlBuilder.append("<p style='font-size: 11px; color: #444444; margin: 0; line-height: 1.6;'>");
-        htmlBuilder.append("<strong style='color: #2C3E50;'>OFFICIAL SYSTEM NOTIFICATION:</strong><br/>");
+        htmlBuilder.append("<strong style='color: #7A1C2C;'>OFFICIAL SYSTEM NOTIFICATION:</strong><br/>");
         htmlBuilder.append("This is a computer-generated official report produced by the Central College Anuradhapura Administration Portal. ");
         htmlBuilder.append("As an electronically generated document, it does not require a physical signature or stamp for validation. ");
         htmlBuilder.append("Any discrepancies should be reported to the system administration immediately.");
