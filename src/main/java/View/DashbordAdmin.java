@@ -238,7 +238,9 @@ public class DashbordAdmin extends javax.swing.JFrame {
         resetMenuColors(); 
         // 2. ඊටපස්සේ මේ ක්ලික් කරපු Label එක විතරක් නිල් පාට (හෝ කැමති පාටක්) කරනවා
         jlbadmin.setForeground(new java.awt.Color(0, 102, 255));
-        // ViewMyMarks 
+       
+         AdminAddAdminPanel adminAddAdminPanel = new AdminAddAdminPanel();
+         loadPanel(adminAddAdminPanel);
               
     }//GEN-LAST:event_jlbadminMouseClicked
 
