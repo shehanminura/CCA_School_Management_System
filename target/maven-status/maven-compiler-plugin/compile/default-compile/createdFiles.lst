@@ -9,6 +9,7 @@ View\Startview$1.class
 View\DashbordAdmin$5.class
 View\DashbordStudent$2.class
 Model\dao\LoginDAO.class
+Controller\AddTeacherEmailService.class
 View\Loginview.class
 View\DashbordAdmin$7.class
 Model\entity\StudentEntity.class
@@ -24,14 +25,19 @@ View\DashbordTeacher$8.class
 View\DashbordStudent$6.class
 View\Startview.class
 MailConnection\MailConnection$1.class
+Model\entity\TeacherEntity.class
 View\DashbordTeacher$1.class
 PdfExportConnection\PdfExportConnection.class
 View\DashbordAdmin$3.class
 View\DashbordStudent$3.class
 View\DashbordTeacher$4.class
+Model\dto\TeacherDto.class
+Controller\AdminTeacherController.class
 com\mycompany\amv_school_management_system\AMV_School_Management_System.class
+Model\dao\AdminTeacherDAO.class
 View\DashbordAdmin$2.class
 DBConnection\DBConnection.class
+View\AdminAddTeacherPanel.class
 View\DashbordStudent$4.class
 View\DashbordAdmin.class
 Model\dao\AdminClassDAO.class

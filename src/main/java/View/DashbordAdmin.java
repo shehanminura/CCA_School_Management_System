@@ -315,12 +315,11 @@ public class DashbordAdmin extends javax.swing.JFrame {
 
     private void jlbteacherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbteacherMouseClicked
         // convert all color black
-        resetMenuColors(); 
-        
-    
-        
+        resetMenuColors();         
         // 2. change color blue
-        jlbteacher.setForeground(new java.awt.Color(0, 102, 255));        
+        jlbteacher.setForeground(new java.awt.Color(0, 102, 255));  
+        AdminAddTeacherPanel addTeacherPanel = new AdminAddTeacherPanel();
+        loadPanel(addTeacherPanel);
     }//GEN-LAST:event_jlbteacherMouseClicked
 
     private void jlbclassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbclassMouseClicked
