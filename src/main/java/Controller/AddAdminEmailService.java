@@ -11,7 +11,7 @@ import DateandTimeConnection.DateandTimeConnection;
 
 public class AddAdminEmailService {
     
-    // --- Welcome Email (Admin - Executive Maroon Theme) ---
+    // --- Welcome Email (Admin - Premium Black & Gold Theme) ---
     public static void sendWelcomeEmail(AdminDto admin) {
         try {
             Session session = MailConnection.getInstance().getSession();
@@ -24,16 +24,16 @@ public class AddAdminEmailService {
             message.setSubject("Official Administrator Registration - Central College Anuradhapura");
             
             String emailBody = "<html>"
-            + "<body style='margin:0; padding:0; background-color:#F4F6F7; font-family:Arial, Helvetica, sans-serif; color:#333333;'>"
+            + "<body style='margin:0; padding:0; background-color:#F5F5F5; font-family:Arial, Helvetica, sans-serif; color:#333333;'>"
             + "<div style='width:100%; padding:30px 0;'>"
             + "<table align='center' width='650' cellpadding='0' cellspacing='0' style='width:650px; max-width:650px; background-color:#ffffff; border-collapse:collapse; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.08);'>"
             
-            // HEADER (Executive Maroon)
+            // HEADER (Premium Black)
             + "<tr>"
-            + "<td style='background-color:#7A1C2C; padding:30px 25px; text-align:center;'>"
+            + "<td style='background-color:#1C1C1C; padding:30px 25px; text-align:center;'>"
             + "<img src='https://anucentralcollege.com/og-image.jpg' alt='Central College Anuradhapura Logo' style='width:85px; height:85px; border-radius:50%; background-color:#ffffff; padding:6px; border:3px solid #D4AF37;'>"
             + "<h1 style='margin:15px 0 5px 0; color:#ffffff; font-size:24px; letter-spacing:0.5px;'>CENTRAL COLLEGE ANURADHAPURA</h1>"
-            + "<p style='margin:0; color:#F5D76E; font-size:14px; font-weight:bold; letter-spacing:0.5px;'>ADMINISTRATION PORTAL</p>"
+            + "<p style='margin:0; color:#D4AF37; font-size:14px; font-weight:bold; letter-spacing:0.5px;'>ADMINISTRATION PORTAL</p>"
             + "</td>"
             + "</tr>"
             
@@ -43,18 +43,18 @@ public class AddAdminEmailService {
             // GREETING
             + "<tr>"
             + "<td style='padding:35px 40px 10px 40px;'>"
-            + "<p style='margin:0 0 12px 0; font-size:16px;'>Dear <strong style='color:#7A1C2C;'>" + admin.getName() + "</strong>,</p>"
-            + "<h2 style='margin:0 0 15px 0; color:#7A1C2C; font-size:23px;'>Administrator Registration Confirmed</h2>"
+            + "<p style='margin:0 0 12px 0; font-size:16px;'>Dear <strong style='color:#1C1C1C;'>" + admin.getName() + "</strong>,</p>"
+            + "<h2 style='margin:0 0 15px 0; color:#1C1C1C; font-size:23px;'>Administrator Registration Confirmed</h2>"
             + "<p style='margin:0; color:#555555; font-size:15px; line-height:1.7;'>We are pleased to inform you that your executive registration with the <strong>Central College Anuradhapura Administration Portal</strong> has been successfully completed.</p>"
             + "</td>"
             + "</tr>"
             
-            // ADMIN ID CARD (Light Maroon/Pinkish)
+            // ADMIN ID CARD (Light Grey/Black accent)
             + "<tr>"
             + "<td style='padding:20px 40px;'>"
-            + "<div style='background-color:#F9F2F4; border:1px solid #E8D5D8; border-left:5px solid #7A1C2C; border-radius:7px; padding:18px 20px;'>"
-            + "<p style='margin:0; font-size:12px; color:#566573; font-weight:bold; letter-spacing:1px;'>YOUR ADMIN ID</p>"
-            + "<p style='margin:7px 0 0 0; font-size:25px; font-weight:bold; color:#7A1C2C;'>" + admin.getAdminId() + "</p>"
+            + "<div style='background-color:#F9F9F9; border:1px solid #E0E0E0; border-left:5px solid #1C1C1C; border-radius:7px; padding:18px 20px;'>"
+            + "<p style='margin:0; font-size:12px; color:#666666; font-weight:bold; letter-spacing:1px;'>YOUR ADMIN ID</p>"
+            + "<p style='margin:7px 0 0 0; font-size:25px; font-weight:bold; color:#1C1C1C;'>" + admin.getAdminId() + "</p>"
             + "</div>"
             + "</td>"
             + "</tr>"
@@ -62,7 +62,7 @@ public class AddAdminEmailService {
             // DETAILS TITLE
             + "<tr>"
             + "<td style='padding:5px 40px 12px 40px;'>"
-            + "<h3 style='margin:0; color:#7A1C2C; font-size:18px;'>Registration Details</h3>"
+            + "<h3 style='margin:0; color:#1C1C1C; font-size:18px;'>Registration Details</h3>"
             + "<div style='width:45px; height:3px; background-color:#D4AF37; margin-top:7px;'></div>"
             + "</td>"
             + "</tr>"
@@ -72,40 +72,40 @@ public class AddAdminEmailService {
             + "<td style='padding:5px 40px 25px 40px;'>"
             + "<table width='100%' cellpadding='0' cellspacing='0' style='border-collapse:collapse; font-size:14px;'>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; width:40%; font-weight:bold; color:#4A111A;'>Full Name</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getName() + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; width:40%; font-weight:bold; color:#333333;'>Full Name</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getName() + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>NIC Number</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getNic() + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>NIC Number</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getNic() + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Date of Birth</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getBirthday() + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Date of Birth</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getBirthday() + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Gender</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getGender() + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Gender</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getGender() + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Contact Number</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getContactNumber() + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Contact Number</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getContactNumber() + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Address</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getAddress() + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Address</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getAddress() + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Basic Salary</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8;'>Rs. " + admin.getSalary() + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Basic Salary</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE;'>Rs. " + admin.getSalary() + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Registered Email</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getEmail() + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Registered Email</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getEmail() + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; font-weight:bold; color:#4A111A;'>Account Status</td>"
-            + "<td style='padding:12px; color:#7A1C2C; font-weight:bold;'>✓ " + admin.getStatus() + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; font-weight:bold; color:#333333;'>Account Status</td>"
+            + "<td style='padding:12px; color:#1C1C1C; font-weight:bold;'>✓ " + admin.getStatus() + "</td>"
             + "</tr>"
             + "</table>"
             + "</td>"
@@ -114,8 +114,8 @@ public class AddAdminEmailService {
             // LOGIN INFORMATION (Gold Accent)
             + "<tr>"
             + "<td style='padding:0 40px 25px 40px;'>"
-            + "<div style='background-color:#FFF9E8; border:1px solid #E8D58A; border-radius:8px; padding:20px;'>"
-            + "<h3 style='margin:0 0 15px 0; color:#6B5200; font-size:17px;'>🔐 Administrative Login Information</h3>"
+            + "<div style='background-color:#FFF9E8; border:1px solid #D4AF37; border-radius:8px; padding:20px;'>"
+            + "<h3 style='margin:0 0 15px 0; color:#8A6D00; font-size:17px;'>🔐 Administrative Login Information</h3>"
             + "<p style='margin:9px 0; font-size:14px;'><strong>Admin ID:</strong> " + admin.getAdminId() + "</p>"
             + "<p style='margin:9px 0; font-size:14px;'><strong>Email:</strong> " + admin.getEmail() + "</p>"
             + "<p style='margin:9px 0; font-size:14px;'><strong>Temporary Password:</strong> <span style='background:#ffffff; padding:6px 10px; border:1px solid #D9D9D9; border-radius:4px; font-family:monospace; font-weight:bold;'>" + admin.getPassword() + "</span></p>"
@@ -123,11 +123,11 @@ public class AddAdminEmailService {
             + "</td>"
             + "</tr>"
             
-            // SECURITY NOTICE (Maroon Accent)
+            // SECURITY NOTICE (Black Accent)
             + "<tr>"
             + "<td style='padding:0 40px 25px 40px;'>"
-            + "<div style='background-color:#F9F2F4; border-left:4px solid #7A1C2C; padding:15px 18px; border-radius:5px;'>"
-            + "<p style='margin:0; color:#7A1C2C; font-size:13px; line-height:1.6;'><strong style='color:#7A1C2C;'>Security Notice</strong><br>As an administrator, your account holds elevated privileges. Please keep your credentials strictly confidential and change your temporary password immediately upon your first login.</p>"
+            + "<div style='background-color:#F9F9F9; border-left:4px solid #1C1C1C; padding:15px 18px; border-radius:5px;'>"
+            + "<p style='margin:0; color:#333333; font-size:13px; line-height:1.6;'><strong style='color:#1C1C1C;'>Security Notice</strong><br>As an administrator, your account holds elevated privileges. Please keep your credentials strictly confidential and change your temporary password immediately upon your first login.</p>"
             + "</div>"
             + "</td>"
             + "</tr>"
@@ -136,16 +136,16 @@ public class AddAdminEmailService {
             + "<tr>"
             + "<td style='padding:5px 40px 30px 40px;'>"
             + "<p style='margin:0; font-size:14px; color:#555555; line-height:1.7;'>We look forward to your valuable contribution to the administration team.</p>"
-            + "<p style='margin:15px 0 0 0; font-size:14px; line-height:1.7;'>Sincerely,<br><strong style='color:#7A1C2C;'>Executive Board</strong><br>Central College Anuradhapura</p>"
+            + "<p style='margin:15px 0 0 0; font-size:14px; line-height:1.7;'>Sincerely,<br><strong style='color:#1C1C1C;'>Executive Board</strong><br>Central College Anuradhapura</p>"
             + "</td>"
             + "</tr>"
             
-            // FOOTER (Darker Maroon)
+            // FOOTER (Pitch Black)
             + "<tr>"
-            + "<td style='background-color:#5C1521; border-top:4px solid #D4AF37; padding:22px 30px; text-align:center;'>"
+            + "<td style='background-color:#0A0A0A; border-top:4px solid #D4AF37; padding:22px 30px; text-align:center;'>"
             + "<p style='margin:0 0 6px 0; color:#ffffff; font-size:13px; font-weight:bold;'>CENTRAL COLLEGE ANURADHAPURA</p>"
-            + "<p style='margin:0; color:#ABB2B9; font-size:11px;'>Administration Portal</p>"
-            + "<p style='margin:8px 0 0 0; color:#808B96; font-size:10px;'>This is an automated executive email. Please do not reply directly to this message.</p>"
+            + "<p style='margin:0; color:#CCCCCC; font-size:11px;'>Administration Portal</p>"
+            + "<p style='margin:8px 0 0 0; color:#888888; font-size:10px;'>This is an automated executive email. Please do not reply directly to this message.</p>"
             + "</td>"
             + "</tr>"
             + "</table>"
@@ -162,7 +162,7 @@ public class AddAdminEmailService {
         }
     }
 
-    // --- Update Email (Admin - Executive Maroon Theme) ---
+    // --- Update Email (Admin - Premium Black Theme) ---
     public static void sendUpdateEmail(AdminDto admin) {
         try {
             Session session = MailConnection.getInstance().getSession();
@@ -174,16 +174,16 @@ public class AddAdminEmailService {
             message.setSubject("Account Update Notification - Central College Anuradhapura");
             
             String emailBody = "<html>"
-            + "<body style='margin:0; padding:0; background-color:#F4F6F7; font-family:Arial, Helvetica, sans-serif; color:#333333;'>"
+            + "<body style='margin:0; padding:0; background-color:#F5F5F5; font-family:Arial, Helvetica, sans-serif; color:#333333;'>"
             + "<div style='width:100%; padding:30px 0;'>"
             + "<table align='center' width='650' cellpadding='0' cellspacing='0' style='width:650px; max-width:650px; background-color:#ffffff; border-collapse:collapse; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.08);'>"
             
             // HEADER
             + "<tr>"
-            + "<td style='background-color:#7A1C2C; padding:30px 25px; text-align:center;'>"
+            + "<td style='background-color:#1C1C1C; padding:30px 25px; text-align:center;'>"
             + "<img src='https://anucentralcollege.com/og-image.jpg' alt='Central College Anuradhapura Logo' style='width:85px; height:85px; border-radius:50%; background-color:#ffffff; padding:6px; border:3px solid #D4AF37;'>"
             + "<h1 style='margin:15px 0 5px 0; color:#ffffff; font-size:24px; letter-spacing:0.5px;'>CENTRAL COLLEGE ANURADHAPURA</h1>"
-            + "<p style='margin:0; color:#F5D76E; font-size:14px; font-weight:bold; letter-spacing:0.5px;'>ADMINISTRATION PORTAL</p>"
+            + "<p style='margin:0; color:#D4AF37; font-size:14px; font-weight:bold; letter-spacing:0.5px;'>ADMINISTRATION PORTAL</p>"
             + "</td>"
             + "</tr>"
             
@@ -193,8 +193,8 @@ public class AddAdminEmailService {
             // GREETING
             + "<tr>"
             + "<td style='padding:35px 40px 10px 40px;'>"
-            + "<p style='margin:0 0 12px 0; font-size:16px;'>Dear <strong style='color:#7A1C2C;'>" + admin.getName() + "</strong>,</p>"
-            + "<h2 style='margin:0 0 15px 0; color:#7A1C2C; font-size:23px;'>Administrator Profile Updated</h2>"
+            + "<p style='margin:0 0 12px 0; font-size:16px;'>Dear <strong style='color:#1C1C1C;'>" + admin.getName() + "</strong>,</p>"
+            + "<h2 style='margin:0 0 15px 0; color:#1C1C1C; font-size:23px;'>Administrator Profile Updated</h2>"
             + "<p style='margin:0; color:#555555; font-size:15px; line-height:1.7;'>This is to inform you that your executive profile in the <strong>Central College Anuradhapura Administration Portal</strong> has been successfully updated.</p>"
             + "</td>"
             + "</tr>"
@@ -202,9 +202,9 @@ public class AddAdminEmailService {
             // ADMIN ID BOX
             + "<tr>"
             + "<td style='padding:20px 40px;'>"
-            + "<div style='background-color:#F9F2F4; border:1px solid #E8D5D8; border-left:5px solid #7A1C2C; border-radius:7px; padding:18px 20px;'>"
-            + "<p style='margin:0; font-size:12px; color:#566573; font-weight:bold; letter-spacing:1px;'>ADMIN ID</p>"
-            + "<p style='margin:7px 0 0 0; font-size:24px; font-weight:bold; color:#7A1C2C;'>" + admin.getAdminId() + "</p>"
+            + "<div style='background-color:#F9F9F9; border:1px solid #E0E0E0; border-left:5px solid #1C1C1C; border-radius:7px; padding:18px 20px;'>"
+            + "<p style='margin:0; font-size:12px; color:#666666; font-weight:bold; letter-spacing:1px;'>ADMIN ID</p>"
+            + "<p style='margin:7px 0 0 0; font-size:24px; font-weight:bold; color:#1C1C1C;'>" + admin.getAdminId() + "</p>"
             + "</div>"
             + "</td>"
             + "</tr>"
@@ -212,7 +212,7 @@ public class AddAdminEmailService {
             // UPDATE INFORMATION
             + "<tr>"
             + "<td style='padding:5px 40px 12px 40px;'>"
-            + "<h3 style='margin:0; color:#7A1C2C; font-size:18px;'>Updated Profile Information</h3>"
+            + "<h3 style='margin:0; color:#1C1C1C; font-size:18px;'>Updated Profile Information</h3>"
             + "<div style='width:45px; height:3px; background-color:#D4AF37; margin-top:7px;'></div>"
             + "</td>"
             + "</tr>"
@@ -221,15 +221,15 @@ public class AddAdminEmailService {
             + "<tr>"
             + "<td style='padding:5px 40px 25px 40px;'>"
             + "<table width='100%' cellpadding='0' cellspacing='0' style='border-collapse:collapse; font-size:14px;'>"
-            + "<tr><td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; width:40%; font-weight:bold; color:#4A111A;'>Full Name</td><td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getName() + "</td></tr>"
-            + "<tr><td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>NIC Number</td><td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getNic() + "</td></tr>"
-            + "<tr><td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Date of Birth</td><td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getBirthday() + "</td></tr>"
-            + "<tr><td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Gender</td><td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getGender() + "</td></tr>"
-            + "<tr><td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Contact Number</td><td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getContactNumber() + "</td></tr>"
-            + "<tr><td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Address</td><td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getAddress() + "</td></tr>"
-            + "<tr><td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Basic Salary</td><td style='padding:12px; border-bottom:1px solid #E5E8E8;'>Rs. " + admin.getSalary() + "</td></tr>"
-            + "<tr><td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Registered Email</td><td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + admin.getEmail() + "</td></tr>"
-            + "<tr><td style='padding:12px; background-color:#F8F9F9; font-weight:bold; color:#4A111A;'>Account Status</td><td style='padding:12px; color:#7A1C2C; font-weight:bold;'>✓ " + admin.getStatus() + "</td></tr>"
+            + "<tr><td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; width:40%; font-weight:bold; color:#333333;'>Full Name</td><td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getName() + "</td></tr>"
+            + "<tr><td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>NIC Number</td><td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getNic() + "</td></tr>"
+            + "<tr><td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Date of Birth</td><td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getBirthday() + "</td></tr>"
+            + "<tr><td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Gender</td><td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getGender() + "</td></tr>"
+            + "<tr><td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Contact Number</td><td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getContactNumber() + "</td></tr>"
+            + "<tr><td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Address</td><td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getAddress() + "</td></tr>"
+            + "<tr><td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Basic Salary</td><td style='padding:12px; border-bottom:1px solid #EEEEEE;'>Rs. " + admin.getSalary() + "</td></tr>"
+            + "<tr><td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Registered Email</td><td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + admin.getEmail() + "</td></tr>"
+            + "<tr><td style='padding:12px; background-color:#F8F8F8; font-weight:bold; color:#333333;'>Account Status</td><td style='padding:12px; color:#1C1C1C; font-weight:bold;'>✓ " + admin.getStatus() + "</td></tr>"
             + "</table>"
             + "</td>"
             + "</tr>"
@@ -237,8 +237,8 @@ public class AddAdminEmailService {
             // IMPORTANT NOTICE
             + "<tr>"
             + "<td style='padding:0 40px 25px 40px;'>"
-            + "<div style='background-color:#FFF9E8; border:1px solid #E8D58A; border-left:5px solid #D4AF37; border-radius:7px; padding:18px 20px;'>"
-            + "<h3 style='margin:0 0 10px 0; color:#6B5200; font-size:16px;'>Important Information</h3>"
+            + "<div style='background-color:#FFF9E8; border:1px solid #D4AF37; border-radius:7px; padding:18px 20px;'>"
+            + "<h3 style='margin:0 0 10px 0; color:#8A6D00; font-size:16px;'>Important Information</h3>"
             + "<p style='margin:0; color:#665A35; font-size:13px; line-height:1.7;'>The information displayed above represents the current administrator profile details. Please review the information carefully to ensure all details are accurate.</p>"
             + "</div>"
             + "</td>"
@@ -247,8 +247,8 @@ public class AddAdminEmailService {
             // SECURITY NOTICE
             + "<tr>"
             + "<td style='padding:0 40px 25px 40px;'>"
-            + "<div style='background-color:#F9F2F4; border-left:4px solid #7A1C2C; padding:15px 18px; border-radius:5px;'>"
-            + "<p style='margin:0; color:#7A1C2C; font-size:13px; line-height:1.6;'><strong style='color:#7A1C2C;'>Security Notice</strong><br>If you did not request or expect these changes, please contact the IT department immediately. Do not share your account credentials with anyone.</p>"
+            + "<div style='background-color:#F9F9F9; border-left:4px solid #1C1C1C; padding:15px 18px; border-radius:5px;'>"
+            + "<p style='margin:0; color:#333333; font-size:13px; line-height:1.6;'><strong style='color:#1C1C1C;'>Security Notice</strong><br>If you did not request or expect these changes, please contact the IT department immediately. Do not share your account credentials with anyone.</p>"
             + "</div>"
             + "</td>"
             + "</tr>"
@@ -257,16 +257,16 @@ public class AddAdminEmailService {
             + "<tr>"
             + "<td style='padding:5px 40px 30px 40px;'>"
             + "<p style='margin:0; font-size:14px; color:#555555; line-height:1.7;'>Thank you for keeping your profile information up to date.</p>"
-            + "<p style='margin:15px 0 0 0; font-size:14px; line-height:1.7;'>Sincerely,<br><strong style='color:#7A1C2C;'>Executive Board</strong><br>Central College Anuradhapura</p>"
+            + "<p style='margin:15px 0 0 0; font-size:14px; line-height:1.7;'>Sincerely,<br><strong style='color:#1C1C1C;'>Executive Board</strong><br>Central College Anuradhapura</p>"
             + "</td>"
             + "</tr>"
             
             // FOOTER
             + "<tr>"
-            + "<td style='background-color:#5C1521; border-top:4px solid #D4AF37; padding:22px 30px; text-align:center;'>"
+            + "<td style='background-color:#0A0A0A; border-top:4px solid #D4AF37; padding:22px 30px; text-align:center;'>"
             + "<p style='margin:0 0 6px 0; color:#ffffff; font-size:13px; font-weight:bold;'>CENTRAL COLLEGE ANURADHAPURA</p>"
-            + "<p style='margin:0; color:#ABB2B9; font-size:11px;'>Administration Portal</p>"
-            + "<p style='margin:8px 0 0 0; color:#808B96; font-size:10px;'>This is an automated executive email. Please do not reply directly to this message.</p>"
+            + "<p style='margin:0; color:#CCCCCC; font-size:11px;'>Administration Portal</p>"
+            + "<p style='margin:8px 0 0 0; color:#888888; font-size:10px;'>This is an automated executive email. Please do not reply directly to this message.</p>"
             + "</td>"
             + "</tr>"
             + "</table>"
@@ -283,7 +283,7 @@ public class AddAdminEmailService {
         }
     }
 
-    // --- Delete Email (Admin - Maroon Theme with Red Alerts) ---
+    // --- Delete Email (Admin - Black Theme with CLEAR Red Warning) ---
     public static void sendDeleteEmail(String email, String name, String adminId) {
         try {
             Session session = MailConnection.getInstance().getSession();
@@ -297,16 +297,16 @@ public class AddAdminEmailService {
             String deletionDateTime = DateandTimeConnection.getInstance().getCurrentDateTime();
             
             String emailBody = "<html>"
-            + "<body style='margin:0; padding:0; background-color:#F4F6F7; font-family:Arial, Helvetica, sans-serif; color:#333333;'>"
+            + "<body style='margin:0; padding:0; background-color:#F5F5F5; font-family:Arial, Helvetica, sans-serif; color:#333333;'>"
             + "<div style='width:100%; padding:30px 0;'>"
             + "<table align='center' width='650' cellpadding='0' cellspacing='0' style='width:650px; max-width:650px; background-color:#ffffff; border-collapse:collapse; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.08);'>"
             
             // HEADER
             + "<tr>"
-            + "<td style='background-color:#7A1C2C; padding:30px 25px; text-align:center;'>"
+            + "<td style='background-color:#1C1C1C; padding:30px 25px; text-align:center;'>"
             + "<img src='https://anucentralcollege.com/og-image.jpg' alt='Central College Anuradhapura Logo' style='width:85px; height:85px; border-radius:50%; background-color:#ffffff; padding:6px; border:3px solid #D4AF37;'>"
             + "<h1 style='margin:15px 0 5px 0; color:#ffffff; font-size:24px; letter-spacing:0.5px;'>CENTRAL COLLEGE ANURADHAPURA</h1>"
-            + "<p style='margin:0; color:#F5D76E; font-size:14px; font-weight:bold; letter-spacing:0.5px;'>ADMINISTRATION PORTAL</p>"
+            + "<p style='margin:0; color:#D4AF37; font-size:14px; font-weight:bold; letter-spacing:0.5px;'>ADMINISTRATION PORTAL</p>"
             + "</td>"
             + "</tr>"
             
@@ -316,13 +316,13 @@ public class AddAdminEmailService {
             // GREETING
             + "<tr>"
             + "<td style='padding:35px 40px 10px 40px;'>"
-            + "<p style='margin:0 0 12px 0; font-size:16px;'>Dear <strong style='color:#7A1C2C;'>" + name + "</strong>,</p>"
+            + "<p style='margin:0 0 12px 0; font-size:16px;'>Dear <strong style='color:#1C1C1C;'>" + name + "</strong>,</p>"
             + "<h2 style='margin:0 0 15px 0; color:#B02A37; font-size:23px;'>Administrative Access Revoked</h2>"
             + "<p style='margin:0; color:#555555; font-size:15px; line-height:1.7;'>We are writing to inform you that your administrative access has been removed from the <strong>Central College Anuradhapura Administration Portal</strong>.</p>"
             + "</td>"
             + "</tr>"
             
-            // DELETED ACCOUNT BOX (Red for alert)
+            // DELETED ACCOUNT BOX (Bright Red for Alert - Contrasts well with Black)
             + "<tr>"
             + "<td style='padding:20px 40px;'>"
             + "<div style='background-color:#FFF4F4; border:1px solid #F1C6C6; border-left:5px solid #B02A37; border-radius:7px; padding:20px;'>"
@@ -335,7 +335,7 @@ public class AddAdminEmailService {
             // ACCOUNT DETAILS
             + "<tr>"
             + "<td style='padding:5px 40px 12px 40px;'>"
-            + "<h3 style='margin:0; color:#7A1C2C; font-size:18px;'>Revoked Account Details</h3>"
+            + "<h3 style='margin:0; color:#1C1C1C; font-size:18px;'>Revoked Account Details</h3>"
             + "<div style='width:45px; height:3px; background-color:#D4AF37; margin-top:7px;'></div>"
             + "</td>"
             + "</tr>"
@@ -345,19 +345,19 @@ public class AddAdminEmailService {
             + "<td style='padding:5px 40px 25px 40px;'>"
             + "<table width='100%' cellpadding='0' cellspacing='0' style='border-collapse:collapse; font-size:14px;'>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; width:40%; font-weight:bold; color:#4A111A;'>Admin ID</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#B02A37;'>" + adminId + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; width:40%; font-weight:bold; color:#333333;'>Admin ID</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#B02A37;'>" + adminId + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Full Name</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8;'>" + name + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Full Name</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE;'>" + name + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; border-bottom:1px solid #E5E8E8; font-weight:bold; color:#4A111A;'>Date & Time of Revocation</td>"
-            + "<td style='padding:12px; border-bottom:1px solid #E5E8E8; color:#555555;'>" + deletionDateTime + "</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; border-bottom:1px solid #EEEEEE; font-weight:bold; color:#333333;'>Date & Time of Revocation</td>"
+            + "<td style='padding:12px; border-bottom:1px solid #EEEEEE; color:#555555;'>" + deletionDateTime + "</td>"
             + "</tr>"
             + "<tr>"
-            + "<td style='padding:12px; background-color:#F8F9F9; font-weight:bold; color:#4A111A;'>Account Status</td>"
+            + "<td style='padding:12px; background-color:#F8F8F8; font-weight:bold; color:#333333;'>Account Status</td>"
             + "<td style='padding:12px; color:#B02A37; font-weight:bold;'>Revoked / Deleted</td>"
             + "</tr>"
             + "</table>"
@@ -367,18 +367,18 @@ public class AddAdminEmailService {
             // IMPORTANT NOTICE
             + "<tr>"
             + "<td style='padding:0 40px 25px 40px;'>"
-            + "<div style='background-color:#FFF9E8; border:1px solid #E8D58A; border-left:5px solid #D4AF37; border-radius:7px; padding:18px 20px;'>"
-            + "<h3 style='margin:0 0 10px 0; color:#6B5200; font-size:16px;'>Important Information</h3>"
+            + "<div style='background-color:#FFF9E8; border:1px solid #D4AF37; border-radius:7px; padding:18px 20px;'>"
+            + "<h3 style='margin:0 0 10px 0; color:#8A6D00; font-size:16px;'>Important Information</h3>"
             + "<p style='margin:0; color:#665A35; font-size:13px; line-height:1.7;'>Your administrative privileges have been revoked. You will no longer be able to access the management portal using this account.</p>"
             + "</div>"
             + "</td>"
             + "</tr>"
             
-            // SECURITY NOTICE
+            // SECURITY NOTICE (Black Accent - Separated from Red)
             + "<tr>"
             + "<td style='padding:0 40px 25px 40px;'>"
-            + "<div style='background-color:#F9F2F4; border-left:4px solid #7A1C2C; padding:15px 18px; border-radius:5px;'>"
-            + "<p style='margin:0; color:#7A1C2C; font-size:13px; line-height:1.6;'><strong style='color:#7A1C2C;'>Did you not expect this?</strong><br>If you believe this action was taken by mistake or without proper authorization, please contact the Executive Board or IT department immediately.</p>"
+            + "<div style='background-color:#F9F9F9; border-left:4px solid #1C1C1C; padding:15px 18px; border-radius:5px;'>"
+            + "<p style='margin:0; color:#333333; font-size:13px; line-height:1.6;'><strong style='color:#1C1C1C;'>Did you not expect this?</strong><br>If you believe this action was taken by mistake or without proper authorization, please contact the Executive Board or IT department immediately.</p>"
             + "</div>"
             + "</td>"
             + "</tr>"
@@ -392,16 +392,16 @@ public class AddAdminEmailService {
             + "<tr>"
             + "<td style='padding:5px 40px 30px 40px;'>"
             + "<p style='margin:0; font-size:14px; color:#555555; line-height:1.7;'>Thank you for your understanding.</p>"
-            + "<p style='margin:15px 0 0 0; font-size:14px; line-height:1.7;'>Sincerely,<br><strong style='color:#7A1C2C;'>Executive Board</strong><br>Central College Anuradhapura</p>"
+            + "<p style='margin:15px 0 0 0; font-size:14px; line-height:1.7;'>Sincerely,<br><strong style='color:#1C1C1C;'>Executive Board</strong><br>Central College Anuradhapura</p>"
             + "</td>"
             + "</tr>"
             
-            // FOOTER (Darker Maroon)
+            // FOOTER (Pitch Black)
             + "<tr>"
-            + "<td style='background-color:#5C1521; border-top:4px solid #D4AF37; padding:22px 30px; text-align:center;'>"
+            + "<td style='background-color:#0A0A0A; border-top:4px solid #D4AF37; padding:22px 30px; text-align:center;'>"
             + "<p style='margin:0 0 6px 0; color:#ffffff; font-size:13px; font-weight:bold;'>CENTRAL COLLEGE ANURADHAPURA</p>"
-            + "<p style='margin:0; color:#ABB2B9; font-size:11px;'>Administration Portal</p>"
-            + "<p style='margin:8px 0 0 0; color:#808B96; font-size:10px;'>This is an automated executive email. Please do not reply directly to this message.</p>"
+            + "<p style='margin:0; color:#CCCCCC; font-size:11px;'>Administration Portal</p>"
+            + "<p style='margin:8px 0 0 0; color:#888888; font-size:10px;'>This is an automated executive email. Please do not reply directly to this message.</p>"
             + "</td>"
             + "</tr>"
             + "</table>"
