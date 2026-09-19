@@ -45,6 +45,7 @@ public class DashbordStudent extends javax.swing.JFrame {
         jlbedumete = new javax.swing.JLabel();
         jlbprofile = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
+        btnhelp = new javax.swing.JButton();
         sturightpanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -120,6 +121,13 @@ public class DashbordStudent extends javax.swing.JFrame {
         btnlogout.setText("Logout");
         btnlogout.addActionListener(this::btnlogoutActionPerformed);
 
+        btnhelp.setBackground(new java.awt.Color(51, 153, 0));
+        btnhelp.setFont(new java.awt.Font("Rockwell Condensed", 1, 12)); // NOI18N
+        btnhelp.setForeground(new java.awt.Color(255, 255, 255));
+        btnhelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/help-desk (1).png"))); // NOI18N
+        btnhelp.setText("Help");
+        btnhelp.addActionListener(this::btnhelpActionPerformed);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -127,6 +135,7 @@ public class DashbordStudent extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnhelp, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jlbdashbord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -154,7 +163,9 @@ public class DashbordStudent extends javax.swing.JFrame {
                 .addComponent(jlbprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnhelp)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         sturightpanel.setBackground(new java.awt.Color(153, 255, 153));
@@ -176,7 +187,7 @@ public class DashbordStudent extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sturightpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -187,7 +198,9 @@ public class DashbordStudent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sturightpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
@@ -270,6 +283,21 @@ public class DashbordStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jlbdashbordMouseClicked
 
+    private void btnhelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhelpActionPerformed
+        // 1. View  Pop-up
+        String[] requestData = View.SupportPopupView.showSupportTicketDialog(this);
+
+        // 2. User OK
+        if (requestData != null) {
+            String userInfo = requestData[0];
+            String message = requestData[1];
+            String attachment = requestData[2];
+
+            Controller.CommonSupportController supportCtrl = new Controller.CommonSupportController(this);
+            supportCtrl.processSupportRequest(userInfo, message, attachment);
+        }
+    }//GEN-LAST:event_btnhelpActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -296,6 +324,7 @@ public class DashbordStudent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnhelp;
     private javax.swing.JButton btnlogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

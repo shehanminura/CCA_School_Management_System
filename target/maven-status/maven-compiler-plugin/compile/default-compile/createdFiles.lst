@@ -9,6 +9,7 @@ View\Startview$1.class
 View\DashbordAdmin$5.class
 View\DashbordStudent$2.class
 Model\dao\LoginDAO.class
+View\SupportPopupView.class
 View\AdminAddAdminPanel.class
 Controller\AddTeacherEmailService.class
 View\Loginview.class
@@ -26,13 +27,16 @@ View\DashbordTeacher$5.class
 View\DashbordTeacher$8.class
 View\DashbordStudent$6.class
 View\Startview.class
+Controller\CommonSupportEmailService.class
 MailConnection\MailConnection$1.class
 Model\dto\AdminDto.class
 Model\entity\TeacherEntity.class
 View\DashbordTeacher$1.class
+View\SupportPopupView$1.class
 PdfExportConnection\PdfExportConnection.class
 View\DashbordAdmin$3.class
 View\DashbordStudent$3.class
+Controller\CommonSupportController.class
 View\DashbordTeacher$4.class
 Model\dto\TeacherDto.class
 Controller\AdminTeacherController.class
@@ -49,6 +53,7 @@ View\DashbordAdmin.class
 Model\dao\AdminClassDAO.class
 View\DashbordStudent.class
 View\DashbordTeacher$7.class
+View\SupportPopupView$2.class
 View\DashbordTeacher$3.class
 Controller\AddStuEmailService.class
 View\DashbordAdmin$6.class

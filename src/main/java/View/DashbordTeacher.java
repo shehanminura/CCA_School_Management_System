@@ -48,6 +48,7 @@ public class DashbordTeacher extends javax.swing.JFrame {
         btnlogout = new javax.swing.JButton();
         jlbteacher = new javax.swing.JLabel();
         jlbclass = new javax.swing.JLabel();
+        btnhelp = new javax.swing.JButton();
         sturightpanel = new javax.swing.JPanel();
 
         jInternalFrame1.setVisible(true);
@@ -152,6 +153,13 @@ public class DashbordTeacher extends javax.swing.JFrame {
             }
         });
 
+        btnhelp.setBackground(new java.awt.Color(51, 153, 0));
+        btnhelp.setFont(new java.awt.Font("Rockwell Condensed", 1, 12)); // NOI18N
+        btnhelp.setForeground(new java.awt.Color(255, 255, 255));
+        btnhelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/help-desk (1).png"))); // NOI18N
+        btnhelp.setText("Help");
+        btnhelp.addActionListener(this::btnhelpActionPerformed);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -172,7 +180,8 @@ public class DashbordTeacher extends javax.swing.JFrame {
                                 .addComponent(jlbsubject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jlbpayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jlbprofile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jlbclass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jlbclass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnhelp, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -196,7 +205,9 @@ public class DashbordTeacher extends javax.swing.JFrame {
                 .addComponent(jlbprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnhelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(17, 17, 17))
         );
 
         sturightpanel.setBackground(new java.awt.Color(153, 255, 153));
@@ -329,6 +340,21 @@ public class DashbordTeacher extends javax.swing.JFrame {
         jlbclass.setForeground(new java.awt.Color(0, 102, 255));
     }//GEN-LAST:event_jlbclassMouseClicked
 
+    private void btnhelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhelpActionPerformed
+        // 1. View  Pop-up
+        String[] requestData = View.SupportPopupView.showSupportTicketDialog(this);
+
+        // 2. User OK
+        if (requestData != null) {
+            String userInfo = requestData[0];
+            String message = requestData[1];
+            String attachment = requestData[2];
+
+            Controller.CommonSupportController supportCtrl = new Controller.CommonSupportController(this);
+            supportCtrl.processSupportRequest(userInfo, message, attachment);
+        }
+    }//GEN-LAST:event_btnhelpActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -355,6 +381,7 @@ public class DashbordTeacher extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnhelp;
     private javax.swing.JButton btnlogout;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;

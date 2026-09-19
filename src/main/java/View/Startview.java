@@ -50,8 +50,9 @@ public class Startview extends javax.swing.JFrame {
     private void initComponents() {
 
         dateandtime = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnadmin = new javax.swing.JButton();
+        btnlogout = new javax.swing.JButton();
+        btnlogin = new javax.swing.JButton();
         startimgbg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,19 +64,27 @@ public class Startview extends javax.swing.JFrame {
         dateandtime.setText("Date ");
         getContentPane().add(dateandtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 102));
-        jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Apply to Register");
-        jButton2.addActionListener(this::jButton2ActionPerformed);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, 230, 50));
+        btnadmin.setBackground(new java.awt.Color(0, 153, 0));
+        btnadmin.setFont(new java.awt.Font("Rockwell Condensed", 1, 12)); // NOI18N
+        btnadmin.setForeground(new java.awt.Color(255, 255, 255));
+        btnadmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/help-desk (1).png"))); // NOI18N
+        btnadmin.setText("Help");
+        btnadmin.addActionListener(this::btnadminActionPerformed);
+        getContentPane().add(btnadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, 170, 30));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 102));
-        jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Login");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 510, 210, 50));
+        btnlogout.setBackground(new java.awt.Color(255, 0, 51));
+        btnlogout.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        btnlogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnlogout.setText("Logout");
+        btnlogout.addActionListener(this::btnlogoutActionPerformed);
+        getContentPane().add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, 140, 40));
+
+        btnlogin.setBackground(new java.awt.Color(0, 0, 102));
+        btnlogin.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        btnlogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnlogin.setText("Login");
+        btnlogin.addActionListener(this::btnloginActionPerformed);
+        getContentPane().add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 140, 40));
 
         startimgbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/newstartbg.jpeg"))); // NOI18N
         getContentPane().add(startimgbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 600));
@@ -83,15 +92,30 @@ public class Startview extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
         View.Loginview loginview = new View.Loginview();
         loginview.setVisible(true);     
         this.dispose();// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnloginActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnlogoutActionPerformed
+
+    private void btnadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadminActionPerformed
+// 1. View  Pop-up 
+        String[] requestData = View.SupportPopupView.showSupportTicketDialog(this);
+        
+        // 2. User OK
+        if (requestData != null) {
+            String userInfo = requestData[0];
+            String message = requestData[1];
+            String attachment = requestData[2];
+            
+            Controller.CommonSupportController supportCtrl = new Controller.CommonSupportController(this);
+            supportCtrl.processSupportRequest(userInfo, message, attachment);
+        }     
+    }//GEN-LAST:event_btnadminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,9 +143,10 @@ public class Startview extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnadmin;
+    private javax.swing.JButton btnlogin;
+    private javax.swing.JButton btnlogout;
     private javax.swing.JLabel dateandtime;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel startimgbg;
     // End of variables declaration//GEN-END:variables
 }
