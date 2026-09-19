@@ -45,7 +45,7 @@ public class LoginController {
                 }
 
                 String role = user.getRole();
-                view.dispose(); // සාර්ථක නම් ලොගින් එක වහනවා
+                // සාර්ථක නම් ලොගින් එක වහනවා
 
                 // 3. Role එකට අදාළ Dashboard එක විවෘත කිරීම
                 switch (role) {

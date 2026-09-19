@@ -6,6 +6,7 @@ View\DashbordTeacher$6.class
 ExcelExportConnection\ExcelExportService.class
 Controller\AdminStudentController.class
 View\Startview$1.class
+View\Startview$4.class
 View\DashbordAdmin$5.class
 View\DashbordStudent$2.class
 Model\dao\LoginDAO.class
@@ -38,6 +39,7 @@ View\DashbordAdmin$3.class
 View\DashbordStudent$3.class
 Controller\CommonSupportController.class
 View\DashbordTeacher$4.class
+View\Startview$3.class
 Model\dto\TeacherDto.class
 Controller\AdminTeacherController.class
 com\mycompany\amv_school_management_system\AMV_School_Management_System.class
@@ -63,4 +65,5 @@ Controller\LoginController.class
 Model\dto\LoginDto.class
 Model\entity\UserEntity.class
 View\DashbordStudent$1.class
+View\Startview$2.class
 MailConnection\MailConnection.class

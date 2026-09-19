@@ -99,7 +99,7 @@ public class Startview extends javax.swing.JFrame {
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
+         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnlogoutActionPerformed
 
     private void btnadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadminActionPerformed
@@ -137,7 +137,127 @@ public class Startview extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+// --- SPLASH SCREEN CODE START ---
+        javax.swing.JWindow splashWindow = new javax.swing.JWindow();
+        
+        // හිස් සුදු පසුබිම වෙනුවට Gradient Background එකක් යෙදීම
+        javax.swing.JPanel contentPanel = new javax.swing.JPanel(new java.awt.BorderLayout()) {
+            @Override
+            protected void paintComponent(java.awt.Graphics g) {
+                super.paintComponent(g);
+                java.awt.Graphics2D g2d = (java.awt.Graphics2D) g;
+                g2d.setRenderingHint(java.awt.RenderingHints.KEY_RENDERING, java.awt.RenderingHints.VALUE_RENDER_QUALITY);
+                
+                // ඉහළින් සුදු පැහැය සහ පහළින් ඉතා ලා කොළ පැහැය (Soft Light Green)
+                java.awt.Color color1 = java.awt.Color.WHITE;
+                java.awt.Color color2 = new java.awt.Color(230, 245, 235); 
+                java.awt.GradientPaint gp = new java.awt.GradientPaint(0, 0, color1, 0, getHeight(), color2);
+                
+                g2d.setPaint(gp);
+                g2d.fillRect(0, 0, getWidth(), getHeight());
+            }
+        };
+        
+        // Professional Theme Border: පිටතින් Green (4px) සහ ඇතුළතින් Yellow (2px)
+        contentPanel.setBorder(javax.swing.BorderFactory.createCompoundBorder(
+            javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51), 4), // Dark Green
+            javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0), 2) // Bright Yellow
+        )); 
 
+        // Logo Image
+        java.net.URL imgURL = Startview.class.getResource("/image/school_logo_removebg.png");
+        if (imgURL != null) {
+            javax.swing.JLabel lblLogo = new javax.swing.JLabel(new javax.swing.ImageIcon(imgURL), javax.swing.SwingConstants.CENTER);
+            contentPanel.add(lblLogo, java.awt.BorderLayout.CENTER);
+        } else {
+            javax.swing.JLabel lblFallback = new javax.swing.JLabel("CCA Logo", javax.swing.SwingConstants.CENTER);
+            lblFallback.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 48)); 
+            lblFallback.setForeground(new java.awt.Color(0, 102, 51)); // Dark Green
+            contentPanel.add(lblFallback, java.awt.BorderLayout.CENTER);
+        }
+        
+        // Bottom Panel for Text & Progress Bar (පසුබිම පෙනීමට Opaque(false) කර ඇත)
+        javax.swing.JPanel bottomPanel = new javax.swing.JPanel(new java.awt.BorderLayout());
+        bottomPanel.setOpaque(false); 
+        
+        // Text Container
+        javax.swing.JPanel textPanel = new javax.swing.JPanel(new java.awt.GridLayout(2, 1));
+        textPanel.setOpaque(false); 
+        textPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 0, 20, 0));
+        
+        javax.swing.JLabel lblTitle = new javax.swing.JLabel("CENTRAL COLLEGE ANURADHAPURA", javax.swing.SwingConstants.CENTER);
+        lblTitle.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 28)); 
+        lblTitle.setForeground(new java.awt.Color(0, 102, 51)); // Dark Green
+
+        javax.swing.JLabel lblLoading = new javax.swing.JLabel("Management System - Starting up...", javax.swing.SwingConstants.CENTER);
+        lblLoading.setFont(new java.awt.Font("Segoe UI", java.awt.Font.ITALIC, 16)); 
+        lblLoading.setForeground(new java.awt.Color(80, 120, 80)); // අකුරු වඩාත් පැහැදිලි වීමට
+
+        textPanel.add(lblTitle);
+        textPanel.add(lblLoading);
+
+        // --- MODERN CUSTOM ANIMATED PROGRESS BAR ---
+        final float[] progress = {0f};
+        javax.swing.JPanel progressBar = new javax.swing.JPanel() {
+            @Override
+            protected void paintComponent(java.awt.Graphics g) {
+                super.paintComponent(g);
+                java.awt.Graphics2D g2d = (java.awt.Graphics2D) g.create();
+                g2d.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                
+                // Track Background (ලා අළු-කොළ පැහැති තීරුව)
+                g2d.setColor(new java.awt.Color(210, 225, 215));
+                g2d.fillRect(0, 0, getWidth(), getHeight());
+                
+                // Filling Gradient (තද කොළ පැහැයේ සිට කහ පැහැයට පිරීගෙන යෑම)
+                int currentWidth = (int) (getWidth() * (progress[0] / 100f));
+                if (currentWidth > 0) {
+                    java.awt.GradientPaint gp = new java.awt.GradientPaint(0, 0, new java.awt.Color(0, 102, 51), currentWidth, 0, new java.awt.Color(255, 204, 0));
+                    g2d.setPaint(gp);
+                    g2d.fillRect(0, 0, currentWidth, getHeight());
+                }
+                g2d.dispose();
+            }
+        };
+        progressBar.setPreferredSize(new java.awt.Dimension(1030, 6)); // උස 6px කර සිහින්, නවීන පෙනුමක් ලබා දී ඇත
+        progressBar.setOpaque(false);
+
+        // තත්පර 5ක් (5000ms) ඇතුළත ඉතා සුමටව (60fps) progress line එක පිරවීමට Timer එකක්
+        javax.swing.Timer timer = new javax.swing.Timer(16, new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                progress[0] += (100f / (5000f / 16f)); 
+                if (progress[0] >= 100f) {
+                    progress[0] = 100f;
+                    ((javax.swing.Timer)e.getSource()).stop();
+                }
+                progressBar.repaint();
+            }
+        });
+        timer.start();
+        // --------------------------------------------
+
+        bottomPanel.add(textPanel, java.awt.BorderLayout.CENTER);
+        bottomPanel.add(progressBar, java.awt.BorderLayout.SOUTH); // පතුළටම Progress bar එක සවි කිරීම
+
+        contentPanel.add(bottomPanel, java.awt.BorderLayout.SOUTH);
+
+        splashWindow.getContentPane().add(contentPanel);
+        
+        // Window size 1030x600
+        splashWindow.setSize(1030, 600); 
+        splashWindow.setLocationRelativeTo(null); 
+        splashWindow.setVisible(true);
+
+        try {
+            Thread.sleep(5800); // තත්පර 5ක් පෙන්වීමට 
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        splashWindow.dispose();
+        // --- SPLASH SCREEN CODE END ---
+     
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Startview().setVisible(true));
     }
