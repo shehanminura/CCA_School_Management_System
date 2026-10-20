@@ -1,4 +1,5 @@
 View\DashbordStudent$5.class
+Model\dto\SubjectDto.class
 View\DashbordAdmin$1.class
 View\DashbordAdmin$8.class
 View\AdminAddStuPanel.class
@@ -14,6 +15,7 @@ Model\dao\LoginDAO.class
 View\SupportPopupView.class
 View\AdminAddAdminPanel.class
 Controller\AddTeacherEmailService.class
+Model\dao\AdminSubjectDAO.class
 View\Loginview.class
 View\DashbordAdmin$7.class
 Model\entity\StudentEntity.class
@@ -38,6 +40,8 @@ View\DashbordTeacher$1.class
 View\SupportPopupView$1.class
 PdfExportConnection\PdfExportConnection.class
 View\DashbordAdmin$3.class
+Model\entity\SubjectEntity.class
+Controller\AdminSubjectController.class
 View\DashbordStudent$3.class
 Controller\CommonSupportController.class
 View\DashbordTeacher$4.class
@@ -47,6 +51,7 @@ Controller\AdminTeacherController.class
 com\mycompany\amv_school_management_system\AMV_School_Management_System.class
 Controller\AdminController.class
 Model\dao\AdminTeacherDAO.class
+View\AdminAddSubjectPanel.class
 View\DashbordAdmin$2.class
 DBConnection\DBConnection.class
 Controller\AddAdminEmailService.class
