@@ -7,6 +7,7 @@ ExcelExportConnection\ExcelExportService.class
 Controller\AdminStudentController.class
 View\Startview$1.class
 View\Startview$4.class
+Controller\AdminClassController.class
 View\DashbordAdmin$5.class
 View\DashbordStudent$2.class
 Model\dao\LoginDAO.class
@@ -16,6 +17,7 @@ Controller\AddTeacherEmailService.class
 View\Loginview.class
 View\DashbordAdmin$7.class
 Model\entity\StudentEntity.class
+Model\dto\ClassDto.class
 com\mycompany\amv_school_management_system\AMV_School_Management_System$1.class
 View\DashbordTeacher$2.class
 DateandTimeConnection\DateandTimeConnection.class
@@ -59,6 +61,7 @@ View\SupportPopupView$2.class
 View\DashbordTeacher$3.class
 Controller\AddStuEmailService.class
 View\DashbordAdmin$6.class
+View\AdminAddClassPanel.class
 View\DashbordTeacher.class
 Controller\LoginController$LoginListener.class
 Controller\LoginController.class

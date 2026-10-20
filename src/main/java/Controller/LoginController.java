@@ -32,11 +32,10 @@ public class LoginController {
                 JOptionPane.showMessageDialog(view, "Please enter both Email and Password!", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-
-            // 1. DAO (Model) හරහා Database එක චෙක් කිරීම
+            //Chick Database true DAO (Model)
             UserEntity user = model.authenticateUser(email, password);
 
-            // 2. ලොගින් එක සාර්ථක නම්
+            // 2.Chick login view
             if (user != null) {
                 
                 if ("Deactivated".equals(user.getStatus())) {
@@ -45,9 +44,8 @@ public class LoginController {
                 }
 
                 String role = user.getRole();
-                // සාර්ථක නම් ලොගින් එක වහනවා
-
-                // 3. Role එකට අදාළ Dashboard එක විවෘත කිරීම
+                
+                // 3. Open Dashbord using role  
                 switch (role) {
                     case "Admin":
                         JOptionPane.showMessageDialog(null, "Welcome Admin!");
@@ -73,6 +71,9 @@ public class LoginController {
                     default:
                         JOptionPane.showMessageDialog(null, "Unknown Role Detected!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+                
+                // close Login view
+                view.dispose();
                 
             } else {
                 // 4. දත්ත වැරදි නම්

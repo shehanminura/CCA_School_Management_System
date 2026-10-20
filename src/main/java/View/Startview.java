@@ -99,7 +99,16 @@ public class Startview extends javax.swing.JFrame {
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-         this.dispose();        // TODO add your handling code here:
+             int choice = javax.swing.JOptionPane.showConfirmDialog(this, 
+                "Are you sure you want to logout?", 
+                "Logout Confirmation", 
+                javax.swing.JOptionPane.YES_NO_OPTION);
+
+        
+        if (choice == javax.swing.JOptionPane.YES_OPTION) {
+            //  close
+            this.dispose(); 
+         }
     }//GEN-LAST:event_btnlogoutActionPerformed
 
     private void btnadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadminActionPerformed
@@ -191,7 +200,7 @@ public class Startview extends javax.swing.JFrame {
 
         javax.swing.JLabel lblLoading = new javax.swing.JLabel("Management System - Starting up...", javax.swing.SwingConstants.CENTER);
         lblLoading.setFont(new java.awt.Font("Segoe UI", java.awt.Font.ITALIC, 16)); 
-        lblLoading.setForeground(new java.awt.Color(80, 120, 80)); // අකුරු වඩාත් පැහැදිලි වීමට
+        lblLoading.setForeground(new java.awt.Color(80, 120, 80)); 
 
         textPanel.add(lblTitle);
         textPanel.add(lblLoading);

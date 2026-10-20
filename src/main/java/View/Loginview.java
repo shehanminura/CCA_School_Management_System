@@ -144,7 +144,7 @@ public class Loginview extends javax.swing.JFrame {
     }//GEN-LAST:event_adminemailActionPerformed
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-
+        
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
@@ -223,6 +223,7 @@ public String getEmail() {
 
 public void addLoginListener(ActionListener listener) {
         btnlogin.addActionListener(listener); 
+        
     }
   
   }
