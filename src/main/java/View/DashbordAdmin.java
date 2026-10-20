@@ -293,12 +293,7 @@ public class DashbordAdmin extends javax.swing.JFrame {
     private void jlbsubjectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbsubjectMouseClicked
        resetMenuColors(); 
         // 2. change color blue
-        jlbclass.setForeground(new java.awt.Color(0, 102, 255));
-        
-        // 🔴 මෙතනින් AdminAddClassPanel එක Load කිරීම සිදු කරයි
-        AdminAddClassPanel classPanel = new AdminAddClassPanel();
-        loadPanel(classPanel);
-        
+        jlbclass.setForeground(new java.awt.Color(0, 102, 255));       
              
     }//GEN-LAST:event_jlbsubjectMouseClicked
 
@@ -343,6 +338,10 @@ public class DashbordAdmin extends javax.swing.JFrame {
         resetMenuColors(); 
         // 2. change color blue
         jlbclass.setForeground(new java.awt.Color(0, 102, 255));
+        
+           // AdminAddClassPanel Load
+        AdminAddClassPanel classPanel = new AdminAddClassPanel();
+        loadPanel(classPanel);
     }//GEN-LAST:event_jlbclassMouseClicked
 
     private void btnhelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhelpActionPerformed
