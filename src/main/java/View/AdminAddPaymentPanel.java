@@ -319,7 +319,7 @@ private AdminPaymentController controller;
     }//GEN-LAST:event_jComboBoxpaystatusActionPerformed
 
     private void btnemailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnemailsActionPerformed
-        // TODO add your handling code here:
+        controller.sendEmailToStudent();        // TODO add your handling code here:
     }//GEN-LAST:event_btnemailsActionPerformed
 
     private void jComboBoxpayclassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxpayclassActionPerformed

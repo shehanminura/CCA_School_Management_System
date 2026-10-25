@@ -166,4 +166,24 @@ public class AdminPaymentDAO {
         } catch (Exception e) { e.printStackTrace(); }
         return list;
     }
+    //get student email 
+    public String getStudentEmailById(String studentId) {
+        String email = null;
+        // student email get users table using JOIN Query
+        String query = "SELECT u.email FROM users u " +
+                       "INNER JOIN student s ON u.user_id = s.user_id " +
+                       "WHERE s.student_id = ?";
+        try {
+            Connection con = DBConnection.getInstance().getConnection();
+            try (PreparedStatement pst = con.prepareStatement(query)) {
+                pst.setString(1, studentId);
+                try (ResultSet rst = pst.executeQuery()) {
+                    if (rst.next()) {
+                        email = rst.getString("email");
+                    }
+                }
+            }
+        } catch (Exception e) { e.printStackTrace(); }
+        return email;
+    }
 }

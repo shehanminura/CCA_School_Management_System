@@ -10,6 +10,11 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
+import javax.mail.Message;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import MailConnection.MailConnection;
 
 public class AdminPaymentController {
     private AdminAddPaymentPanel view;
@@ -33,7 +38,7 @@ public class AdminPaymentController {
         String className = view.getSelectedClassName(); 
         String feeStatus = view.getSelectedFeeStatus();
         String remark = view.getRemark();
-        // DateandTimeConnection එකෙන් එන දිනය පමණක් ලබා ගැනීම
+        // DateandTimeConnection 
         String date = view.getCurrentDate(); 
         if (date != null && date.length() > 10) {
             date = date.substring(0, 10);
@@ -280,5 +285,151 @@ public class AdminPaymentController {
             "Payment_Status_Report.pdf", 
             htmlBuilder.toString()
         );
+    }
+    
+// Premium & Dynamic UI Receipt Template
+    public void sendEmailToStudent() {
+        String studentId = view.getSelectedStudentId();
+        
+        if (studentId == null || studentId.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(view, "Please select a Student ID from the list first!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String email = dao.getStudentEmailById(studentId.trim());
+        if (email == null || email.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(view, "No email address registered for this student!", "Info", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        PaymentDto dto = dao.searchPayment(studentId.trim());
+        if (dto == null) {
+            JOptionPane.showMessageDialog(view, "No payment record found for this student. Please add a record first.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String statusId = dto.getStatusId();
+        String status = dto.getFeeStatus();
+        String studentName = dto.getStudentName();
+        String className = dto.getClassName();
+        String date = dto.getUpdatedDate();
+        String remark = dto.getRemark() != null ? dto.getRemark() : "N/A";
+
+        new Thread(() -> {
+            try {
+                Message message = new MimeMessage(MailConnection.getInstance().getSession());
+                message.setFrom(new InternetAddress(MailConnection.getInstance().getSenderEmail(), "Central College Anuradhapura"));
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+                
+                String subject = "";
+                String color = "";
+                String bgColor = ""; 
+                String receiptTitle = "";
+                String bodyText = "";
+
+                //find Payment Status
+                if (status.equalsIgnoreCase("Paid")) {
+                    subject = "Official Payment Receipt - Central College Anuradhapura";
+                    color = "#008B45"; // Deep Green
+                    bgColor = "#f0faf3"; // Soft Mint Green (Background)
+                    receiptTitle = "OFFICIAL PAYMENT RECEIPT";
+                    bodyText = "We acknowledge with thanks the receipt of your school fee payment. Your payment has been successfully recorded in our system.";
+                } else if (status.equalsIgnoreCase("Not Paid")) {
+                    subject = "Official Payment Notice - Central College Anuradhapura";
+                    color = "#D32F2F"; // Red
+                    bgColor = "#fdf2f2"; // Soft Rose/Red (Background)
+                    receiptTitle = "OFFICIAL PAYMENT NOTICE";
+                    bodyText = "This document serves as an official notice that your school fees are currently pending. We kindly request you to settle the dues at your earliest convenience.";
+                } else if (status.equalsIgnoreCase("Exempted")) {
+                    subject = "Payment Exemption Record - Central College Anuradhapura";
+                    color = "#0288D1"; // Blue
+                    bgColor = "#f0f8fc"; // Soft Light Blue (Background)
+                    receiptTitle = "OFFICIAL EXEMPTION RECORD";
+                    bodyText = "This document confirms that your school fee payment has been officially exempted by the school administration. No payment is required.";
+                } else {
+                    subject = "Payment Status Record - Central College Anuradhapura";
+                    color = "#607D8B"; // Blue Grey
+                    bgColor = "#f4f6f7"; // Soft Grey (Background)
+                    receiptTitle = "OFFICIAL STATUS RECORD";
+                    bodyText = "Your school fee payment status has been updated in our official records.";
+                }
+
+                // Premium UI HTML Template with dynamic background colors 
+                String htmlContent = "<!DOCTYPE html><html><head><style>" +
+                        "body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #E2E8F0; margin: 0; padding: 40px 15px; }" +
+                        ".receipt-container { max-width: 650px; margin: 0 auto; background-color: " + bgColor + "; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 8px solid " + color + "; border-bottom: 8px solid " + color + "; }" +
+                        ".header { text-align: center; padding-bottom: 25px; border-bottom: 2px dashed rgba(0,0,0,0.1); position: relative; }" +
+                        ".logo { width: 80px; height: 80px; margin-bottom: 12px; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1)); }" +
+                        ".school-name { color: #006B3C; font-size: 24px; font-weight: 800; margin: 0 0 5px 0; letter-spacing: 1.5px; text-transform: uppercase; text-shadow: 1px 1px 2px rgba(0,0,0,0.05); }" +
+                        ".receipt-title { color: #64748b; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin: 0; font-weight: 600; }" +
+                        ".status-badge { display: inline-block; margin-top: 20px; padding: 10px 30px; background-color: " + color + "; color: #ffffff; border-radius: 30px; font-size: 16px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }" +
+                        ".content-section { margin-top: 35px; }" +
+                        ".greeting { font-size: 17px; color: #334155; margin-bottom: 15px; }" +
+                        ".message-box { background-color: rgba(255,255,255,0.6); border-left: 4px solid " + color + "; padding: 18px 22px; margin-bottom: 35px; color: #475569; font-size: 16px; line-height: 1.6; border-radius: 0 8px 8px 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); }" +
+                        ".details-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 40px; border: 1px solid rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }" +
+                        ".details-table th, .details-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.05); }" +
+                        ".details-table th { width: 40%; background-color: rgba(0,0,0,0.03); color: #475569; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }" +
+                        ".details-table td { background-color: rgba(255,255,255,0.4); color: #1e293b; font-size: 15px; font-weight: 600; }" +
+                        ".details-table tr:last-child th, .details-table tr:last-child td { border-bottom: none; }" +
+                        ".signature-area { margin-top: 50px; text-align: right; padding-right: 20px; }" +
+                        ".signature-line { border-top: 1px solid #94a3b8; display: inline-block; width: 220px; padding-top: 8px; color: #64748b; font-size: 14px; font-style: italic; }" +
+                        ".footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.1); color: #94a3b8; font-size: 12px; line-height: 1.6; }" +
+                        "</style></head><body>" +
+                        
+                        "<div class='receipt-container'>" +
+                        
+                        "<!-- Header Section -->" +
+                        "<div class='header'>" +
+                        "<img src='https://anucentralcollege.com/og-image.jpg' alt='Logo' class='logo' />" + 
+                        "<h1 class='school-name'>CENTRAL COLLEGE ANURADHAPURA</h1>" +
+                        "<p class='receipt-title'>" + receiptTitle + "</p>" +
+                        "<div class='status-badge'>" + status + "</div>" +
+                        "</div>" +
+                        
+                        "<!-- Body Section -->" +
+                        "<div class='content-section'>" +
+                        "<p class='greeting'>Dear <strong>" + studentName + "</strong>,</p>" +
+                        "<div class='message-box'>" + bodyText + "</div>" +
+                        
+                        "<!-- Details Table -->" +
+                        "<table class='details-table'>" +
+                        "<tr><th>Receipt / Ref No:</th><td style='color: " + color + "; font-weight: 800; font-size: 16px;'>" + statusId + "</td></tr>" +
+                        "<tr><th>Student ID:</th><td>" + studentId + "</td></tr>" +
+                        "<tr><th>Class Name:</th><td>" + className + "</td></tr>" +
+                        "<tr><th>Remarks / Notes:</th><td>" + remark + "</td></tr>" +
+                        "<tr><th>Date of Record:</th><td>" + date + "</td></tr>" +
+                        "</table>" +
+                        
+                        "<!-- Signature Section -->" +
+                        "<div class='signature-area'>" +
+                        "<span class='signature-line'>Authorized by School Administration</span>" +
+                        "</div>" +
+                        
+                        "</div>" + 
+                        
+                        "<!-- Footer Section -->" +
+                        "<div class='footer'>" +
+                        "<p>This is a computer-generated official document by the Central College Anuradhapura Management System.<br>As an electronic document, it does not require a physical signature or stamp for validation.</p>" +
+                        "<p>&copy; 2026 Central College Anuradhapura. All rights reserved.</p>" +
+                        "</div>" +
+                        
+                        "</div></body></html>";
+
+                message.setSubject(subject);
+                message.setContent(htmlContent, "text/html; charset=utf-8");
+
+                Transport.send(message);
+
+                javax.swing.SwingUtilities.invokeLater(() -> {
+                    JOptionPane.showMessageDialog(view, "Premium Official Receipt successfully sent to " + studentName + " (" + email + ")", "Success", JOptionPane.INFORMATION_MESSAGE);
+                });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                javax.swing.SwingUtilities.invokeLater(() -> {
+                    JOptionPane.showMessageDialog(view, "Failed to send email!\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                });
+            }
+        }).start(); 
     }
 }
