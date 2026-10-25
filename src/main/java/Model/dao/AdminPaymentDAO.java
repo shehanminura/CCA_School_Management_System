@@ -4,8 +4,7 @@ import DBConnection.DBConnection;
 import Model.dto.PaymentDto;
 import Model.entity.PaymentEntity;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class AdminPaymentDAO {
 
@@ -186,4 +185,24 @@ public class AdminPaymentDAO {
         } catch (Exception e) { e.printStackTrace(); }
         return email;
     }
+    
+//    // get Payment Status for Pie Chart
+//    public Map<String, Integer> getPaymentStatusCounts() {
+//        Map<String, Integer> counts = new HashMap<>();
+//        // start count 0
+//        counts.put("Paid", 0);
+//        counts.put("Not Paid", 0);
+//        counts.put("Exempted", 0);
+//        
+//        String query = "SELECT fee_status, COUNT(student_id) as total FROM student_fee_status GROUP BY fee_status";
+//        try {
+//            Connection con = DBConnection.getInstance().getConnection();
+//            try (Statement stm = con.createStatement(); ResultSet rst = stm.executeQuery(query)) {
+//                while (rst.next()) {
+//                    counts.put(rst.getString("fee_status"), rst.getInt("total"));
+//                }
+//            }
+//        } catch (Exception e) { e.printStackTrace(); }
+//        return counts;
+//    }
 }

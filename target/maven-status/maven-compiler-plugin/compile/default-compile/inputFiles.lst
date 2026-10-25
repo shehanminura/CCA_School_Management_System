@@ -4,6 +4,7 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AddTeacherEmailService.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminClassController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminController.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminDashboardController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminPaymentController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminStudentController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminSubjectController.java
@@ -17,6 +18,7 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\MailConnection\MailConnection.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminClassDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminDAO.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminDashboardDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminPaymentDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminStudentDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminSubjectDAO.java
@@ -43,6 +45,7 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AdminAddStuPanel.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AdminAddSubjectPanel.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AdminAddTeacherPanel.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AdminDashbordPanel.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\DashbordAdmin.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\DashbordStudent.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\DashbordTeacher.java

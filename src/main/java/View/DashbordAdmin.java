@@ -4,6 +4,8 @@
  */
 package View;
 
+
+
 /**
  *
  * @author User
@@ -11,19 +13,22 @@ package View;
 public class DashbordAdmin extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DashbordAdmin.class.getName());
-
+    
     /**
      * Creates new form DashbordStudent
      */
     public DashbordAdmin() {
-        initComponents();
+        initComponents(); // පළමුව UI Components සියල්ල ලෝඩ් වේ
         setLocationRelativeTo(null);
         resetMenuColors(); 
-    
+        jlbdashbord.setForeground(new java.awt.Color(0, 102, 255));
         
       
-       
-        jlbdashbord.setForeground(new java.awt.Color(0, 102, 255));
+        
+        AdminDashbordPanel adminDashbordPanel = new AdminDashbordPanel();
+        loadPanel(adminDashbordPanel);
+        
+      
     }
 
     /**
@@ -159,7 +164,7 @@ public class DashbordAdmin extends javax.swing.JFrame {
         sturightpanel.setLayout(sturightpanelLayout);
         sturightpanelLayout.setHorizontalGroup(
             sturightpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 773, Short.MAX_VALUE)
+            .addGap(0, 779, Short.MAX_VALUE)
         );
         sturightpanelLayout.setVerticalGroup(
             sturightpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +200,7 @@ public class DashbordAdmin extends javax.swing.JFrame {
                                 .addComponent(btnlogout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(1, 1, 1))
                     .addComponent(jlbteacher, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(sturightpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -239,8 +244,7 @@ public class DashbordAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -323,7 +327,10 @@ public class DashbordAdmin extends javax.swing.JFrame {
     private void jlbdashbordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbdashbordMouseClicked
         resetMenuColors(); 
         // change menu color     
-        jlbdashbord.setForeground(new java.awt.Color(0, 102, 255));       
+        jlbdashbord.setForeground(new java.awt.Color(0, 102, 255)); 
+        
+      AdminDashbordPanel adminDashbordPanel = new AdminDashbordPanel();
+        loadPanel(adminDashbordPanel);
     }//GEN-LAST:event_jlbdashbordMouseClicked
 
     private void jlbteacherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbteacherMouseClicked
@@ -423,4 +430,6 @@ public class DashbordAdmin extends javax.swing.JFrame {
         jlbclass.setForeground(defaultColor);
         jlbteacher.setForeground(defaultColor);
     }
+    
+
 }

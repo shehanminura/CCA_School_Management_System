@@ -36,6 +36,7 @@ View\DashbordTeacher$8.class
 View\DashbordStudent$6.class
 View\Startview.class
 Controller\CommonSupportEmailService.class
+View\AdminDashbordPanel.class
 MailConnection\MailConnection$1.class
 Model\dto\AdminDto.class
 Model\entity\TeacherEntity.class
@@ -62,6 +63,7 @@ Controller\AddAdminEmailService.class
 View\AdminAddTeacherPanel.class
 View\DashbordStudent$4.class
 Model\dao\AdminDAO.class
+Controller\AdminDashboardController.class
 View\DashbordAdmin.class
 Model\dao\AdminClassDAO.class
 View\DashbordStudent.class
@@ -74,6 +76,7 @@ View\AdminAddClassPanel.class
 View\DashbordTeacher.class
 Controller\LoginController$LoginListener.class
 Controller\LoginController.class
+Model\dao\AdminDashboardDAO.class
 Model\dto\LoginDto.class
 Model\entity\UserEntity.class
 Model\dao\AdminPaymentDAO.class

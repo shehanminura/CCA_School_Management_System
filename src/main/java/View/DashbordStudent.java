@@ -4,6 +4,8 @@
  */
 package View;
 
+import Controller.AdminPaymentController;
+
 /**
  *
  * @author User
@@ -24,6 +26,8 @@ public class DashbordStudent extends javax.swing.JFrame {
         // 3. ඒ ලෝඩ් වුණු පැනල් එකට අදාළ Label එක විතරක් පාට කිරීම (Active කර පෙන්වීම)
        
         jlbdashbord.setForeground(new java.awt.Color(0, 102, 255));
+        
+   
     }
 
     /**
