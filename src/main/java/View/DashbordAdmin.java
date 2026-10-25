@@ -307,7 +307,8 @@ public class DashbordAdmin extends javax.swing.JFrame {
         // 2. change color blue
         jlbpayment.setForeground(new java.awt.Color(0, 102, 255));
         
-        
+        AdminAddPaymentPanel addPaymentPanel = new AdminAddPaymentPanel();
+        loadPanel(addPaymentPanel);
         
     }//GEN-LAST:event_jlbpaymentMouseClicked
 
@@ -321,12 +322,8 @@ public class DashbordAdmin extends javax.swing.JFrame {
 
     private void jlbdashbordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbdashbordMouseClicked
         resetMenuColors(); 
-    
-        
-        // change menu color
-      
+        // change menu color     
         jlbdashbord.setForeground(new java.awt.Color(0, 102, 255));       
-        
     }//GEN-LAST:event_jlbdashbordMouseClicked
 
     private void jlbteacherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbteacherMouseClicked
@@ -342,22 +339,19 @@ public class DashbordAdmin extends javax.swing.JFrame {
         resetMenuColors(); 
         // 2. change color blue
         jlbclass.setForeground(new java.awt.Color(0, 102, 255));
-        
            // AdminAddClassPanel Load
         AdminAddClassPanel classPanel = new AdminAddClassPanel();
         loadPanel(classPanel);
     }//GEN-LAST:event_jlbclassMouseClicked
 
     private void btnhelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhelpActionPerformed
-            // 1. View  Pop-up 
+        // 1. View  Pop-up 
         String[] requestData = View.SupportPopupView.showSupportTicketDialog(this);
-        
         // 2. User OK
         if (requestData != null) {
             String userInfo = requestData[0];
             String message = requestData[1];
             String attachment = requestData[2];
-            
             Controller.CommonSupportController supportCtrl = new Controller.CommonSupportController(this);
             supportCtrl.processSupportRequest(userInfo, message, attachment);
         }   
@@ -416,7 +410,7 @@ public class DashbordAdmin extends javax.swing.JFrame {
         sturightpanel.repaint(); // Repaint the UI to show the new panel
     }
     
-    // සියලුම Menu Labels වල පාට සාමාන්‍ය (කලු) කිරීම සඳහා
+    // Menu Labels වල පාට සාමාන්‍ය (කලු) කිරීම සඳහා
     private void resetMenuColors() {
         // ඔයාගේ අකුරු වල මුල් පාට මෙතැනට දෙන්න (උදා: කලු නම් 0, 0, 0)
         java.awt.Color defaultColor = new java.awt.Color(0, 0, 0); 

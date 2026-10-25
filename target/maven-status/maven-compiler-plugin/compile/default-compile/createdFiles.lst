@@ -8,6 +8,8 @@ ExcelExportConnection\ExcelExportService.class
 Controller\AdminStudentController.class
 View\Startview$1.class
 View\Startview$4.class
+Model\dto\PaymentDto.class
+Model\entity\PaymentEntity.class
 Controller\AdminClassController.class
 View\DashbordAdmin$5.class
 View\DashbordStudent$2.class
@@ -26,6 +28,7 @@ DateandTimeConnection\DateandTimeConnection.class
 Model\dao\AdminStudentDAO.class
 Model\entity\AdminEntity.class
 View\DashbordAdmin$4.class
+Controller\AdminPaymentController.class
 Model\entity\ClassEntity.class
 Model\dto\StudentDto.class
 View\DashbordTeacher$5.class
@@ -47,6 +50,7 @@ Controller\CommonSupportController.class
 View\DashbordTeacher$4.class
 View\Startview$3.class
 Model\dto\TeacherDto.class
+View\AdminAddPaymentPanel.class
 Controller\AdminTeacherController.class
 com\mycompany\amv_school_management_system\AMV_School_Management_System.class
 Controller\AdminController.class
@@ -72,6 +76,7 @@ Controller\LoginController$LoginListener.class
 Controller\LoginController.class
 Model\dto\LoginDto.class
 Model\entity\UserEntity.class
+Model\dao\AdminPaymentDAO.class
 View\DashbordStudent$1.class
 View\Startview$2.class
 MailConnection\MailConnection.class
