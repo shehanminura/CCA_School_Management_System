@@ -97,7 +97,7 @@ private AdminSubjectController controller;
         jbtnseartch.addActionListener(this::jbtnseartchActionPerformed);
 
         subjectid.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        subjectid.setText("Class_id");
+        subjectid.setText("Subject_id");
 
         txtsertchid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 

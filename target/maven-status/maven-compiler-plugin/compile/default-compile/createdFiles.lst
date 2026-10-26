@@ -31,6 +31,7 @@ View\DashbordAdmin$4.class
 Controller\AdminPaymentController.class
 Model\entity\ClassEntity.class
 Model\dto\StudentDto.class
+View\SubjectPanel.class
 View\Startview.class
 Controller\CommonSupportEmailService.class
 View\AdminDashbordPanel.class
@@ -43,6 +44,7 @@ View\SupportPopupView$1.class
 PdfExportConnection\PdfExportConnection.class
 View\DashbordAdmin$3.class
 View\AdminProfilePanel.class
+Controller\SubjectController$1.class
 Model\entity\SubjectEntity.class
 Controller\AdminSubjectController.class
 View\DashbordStudent$3.class
@@ -70,6 +72,7 @@ View\DashbordStudent.class
 View\SupportPopupView$2.class
 View\DashbordTeacher$3.class
 Controller\AddStuEmailService.class
+Controller\SubjectController.class
 View\DashbordAdmin$6.class
 View\AdminAddClassPanel.class
 View\DashbordTeacher.class

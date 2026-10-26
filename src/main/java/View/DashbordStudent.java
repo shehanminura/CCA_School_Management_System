@@ -201,7 +201,10 @@ public class DashbordStudent extends javax.swing.JFrame {
         resetMenuColors(); 
         // 2. change color blue
         jlbsubject.setForeground(new java.awt.Color(0, 102, 255));
-               // TODO add your handling code here:
+        SubjectPanel subjectPanel = new SubjectPanel();
+        loadPanel(subjectPanel);
+
+// TODO add your handling code here:
     }//GEN-LAST:event_jlbsubjectMouseClicked
 
     private void jlbassigemtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbassigemtMouseClicked
@@ -218,6 +221,14 @@ public class DashbordStudent extends javax.swing.JFrame {
         resetMenuColors(); 
         // 2. change color blue
         jlbedumete.setForeground(new java.awt.Color(0, 102, 255));
+        
+  
+    // 3. Show "Coming Soon" alert
+    javax.swing.JOptionPane.showMessageDialog(
+        this, 
+        "EduMate AI Assistant is coming soon!", 
+        "Coming Soon", 
+        javax.swing.JOptionPane.INFORMATION_MESSAGE);
            
         // TODO add your handling code here:
     }//GEN-LAST:event_jlbedumeteMouseClicked
@@ -290,12 +301,12 @@ public class DashbordStudent extends javax.swing.JFrame {
 
 
 // Method to load a new panel into the rightPanel
-    public void loadPanel(StudentProfilePanel panel) {
-        sturightpanel.removeAll(); // Remove all existing components from the panel
-        sturightpanel.setLayout(new java.awt.BorderLayout()); // Set layout to fill the entire space
-        sturightpanel.add(panel); // Add the new panel
-        sturightpanel.revalidate(); // Revalidate the UI to apply changes
-        sturightpanel.repaint(); // Repaint the UI to show the new panel
+  public void loadPanel(javax.swing.JPanel panel) {
+        sturightpanel.removeAll(); 
+        sturightpanel.setLayout(new java.awt.BorderLayout()); 
+        sturightpanel.add(panel, java.awt.BorderLayout.CENTER); 
+        sturightpanel.revalidate(); 
+        sturightpanel.repaint(); 
     }
     
     // සියලුම Menu Labels වල පාට සාමාන්‍ය (කලු) කිරීම සඳහා
