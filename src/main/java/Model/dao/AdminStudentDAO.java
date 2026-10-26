@@ -238,4 +238,36 @@ public class AdminStudentDAO {
             return false;
         }
     }
+    
+    // Search by Email
+    public StudentEntity searchStudentByEmail(String email) {
+        String query = "SELECT s.student_id, s.name, s.birthday, s.contact_number, u.email, s.address, s.gender, s.class_id, c.class_name, u.password, u.status, s.registration_date " +
+                       "FROM student s " +
+                       "JOIN users u ON s.user_id = u.user_id " +
+                       "LEFT JOIN class c ON s.class_id = c.class_id WHERE u.email = ?";
+        
+        try {
+            Connection con = DBConnection.getInstance().getConnection();
+            try (PreparedStatement pst = con.prepareStatement(query)) {
+                pst.setString(1, email);
+                try (ResultSet rst = pst.executeQuery()) {
+                    if (rst.next()) {
+                        StudentEntity student = new StudentEntity(
+                            rst.getString("student_id"), rst.getString("name"), rst.getString("birthday"),
+                            rst.getString("contact_number"), rst.getString("email"), rst.getString("address"),
+                            rst.getString("gender"), rst.getString("password"), rst.getString("status")
+                        );
+                        student.setClassId(rst.getString("class_id"));
+                        student.setClassName(rst.getString("class_name"));
+                        student.setRegistrationDate(rst.getString("registration_date"));
+                        return student;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
 }

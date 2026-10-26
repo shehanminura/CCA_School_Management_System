@@ -8,7 +8,7 @@ public class StudentDto {
     private String email;
     private String address;
     private String gender;
-    private String classId; // අලුතින් එකතු කළ Class ID එක
+    private String classId; // Class ID
     private String password;
     private String status;
     private String className;

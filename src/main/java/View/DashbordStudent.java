@@ -23,9 +23,9 @@ public class DashbordStudent extends javax.swing.JFrame {
         resetMenuColors(); 
    
         
-        // 3. ඒ ලෝඩ් වුණු පැනල් එකට අදාළ Label එක විතරක් පාට කිරීම (Active කර පෙන්වීම)
+      StudentProfilePanel studentProfilePanel = new StudentProfilePanel();
+      loadPanel(studentProfilePanel);
        
-        jlbdashbord.setForeground(new java.awt.Color(0, 102, 255));
         
    
     }
@@ -42,8 +42,6 @@ public class DashbordStudent extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jlbmarks = new javax.swing.JLabel();
-        jlbdashbord = new javax.swing.JLabel();
         jlbsubject = new javax.swing.JLabel();
         jlbassigemt = new javax.swing.JLabel();
         jlbedumete = new javax.swing.JLabel();
@@ -64,28 +62,6 @@ public class DashbordStudent extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 15, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jlbmarks.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
-        jlbmarks.setText("My Marks");
-        jlbmarks.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlbmarksMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jlbmarksMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jlbmarksMouseExited(evt);
-            }
-        });
-
-        jlbdashbord.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
-        jlbdashbord.setText("Dashboard");
-        jlbdashbord.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlbdashbordMouseClicked(evt);
-            }
-        });
 
         jlbsubject.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         jlbsubject.setText("My Subject");
@@ -139,33 +115,27 @@ public class DashbordStudent extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlbsubject, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnhelp, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jlbdashbord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jlbmarks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jlbassigemt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jlbedumete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jlbprofile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jlbsubject, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jlbprofile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jlbdashbord, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlbmarks, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jlbsubject, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jlbassigemt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jlbedumete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
                 .addComponent(jlbprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlbsubject, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlbassigemt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlbedumete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128)
                 .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnhelp)
@@ -200,31 +170,14 @@ public class DashbordStudent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sturightpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sturightpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jlbmarksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbmarksMouseClicked
-        resetMenuColors(); 
-        // 2. ඊටපස්සේ මේ ක්ලික් කරපු Label එක විතරක් නිල් පාට (හෝ කැමති පාටක්) කරනවා
-        jlbmarks.setForeground(new java.awt.Color(0, 102, 255));
-        // ViewMyMarks 
-             // TODO add your handling code here:
-    }//GEN-LAST:event_jlbmarksMouseClicked
-
-    private void jlbmarksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbmarksMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jlbmarksMouseEntered
-
-    private void jlbmarksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbmarksMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jlbmarksMouseExited
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
           int choice = javax.swing.JOptionPane.showConfirmDialog(this, 
@@ -274,18 +227,13 @@ public class DashbordStudent extends javax.swing.JFrame {
         resetMenuColors(); 
         // 2. change color blue
         jlbprofile.setForeground(new java.awt.Color(0, 102, 255));
+               
+        // 3. StudentProfilePanel එක loadPanel හරහා sturightpanel එකට දැමීම
+        StudentProfilePanel studentProfilePanel = new StudentProfilePanel();
+        loadPanel(studentProfilePanel);
+
                // TODO add your handling code here:
     }//GEN-LAST:event_jlbprofileMouseClicked
-
-    private void jlbdashbordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbdashbordMouseClicked
-        resetMenuColors(); 
-   
-        
-        // 3. ඒ ලෝඩ් වුණු පැනල් එකට අදාළ Label එක විතරක් පාට කිරීම (Active කර පෙන්වීම)
-      
-        jlbdashbord.setForeground(new java.awt.Color(0, 102, 255));       
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jlbdashbordMouseClicked
 
     private void btnhelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhelpActionPerformed
         // 1. View  Pop-up
@@ -334,9 +282,7 @@ public class DashbordStudent extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jlbassigemt;
-    private javax.swing.JLabel jlbdashbord;
     private javax.swing.JLabel jlbedumete;
-    private javax.swing.JLabel jlbmarks;
     private javax.swing.JLabel jlbprofile;
     private javax.swing.JLabel jlbsubject;
     private javax.swing.JPanel sturightpanel;
@@ -344,7 +290,7 @@ public class DashbordStudent extends javax.swing.JFrame {
 
 
 // Method to load a new panel into the rightPanel
-    public void loadPanel(javax.swing.JPanel panel) {
+    public void loadPanel(StudentProfilePanel panel) {
         sturightpanel.removeAll(); // Remove all existing components from the panel
         sturightpanel.setLayout(new java.awt.BorderLayout()); // Set layout to fill the entire space
         sturightpanel.add(panel); // Add the new panel
@@ -356,8 +302,6 @@ public class DashbordStudent extends javax.swing.JFrame {
     private void resetMenuColors() {
         // ඔයාගේ අකුරු වල මුල් පාට මෙතැනට දෙන්න (උදා: කලු නම් 0, 0, 0)
         java.awt.Color defaultColor = new java.awt.Color(0, 0, 0); 
-        jlbdashbord.setForeground(defaultColor);
-        jlbmarks.setForeground(defaultColor);
         jlbsubject.setForeground(defaultColor);
         jlbassigemt.setForeground(defaultColor);
         jlbedumete.setForeground(defaultColor);

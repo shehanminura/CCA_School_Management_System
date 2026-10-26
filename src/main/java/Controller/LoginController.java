@@ -65,7 +65,7 @@ public class LoginController {
                         
                     case "Student":
                         JOptionPane.showMessageDialog(null, "Welcome Student!");
-                        
+                        Controller.StudentProfileController.loggedInStudentEmail = email;
                         View.DashbordStudent dashbordStudent = new View.DashbordStudent();
                         dashbordStudent.setVisible(true);
                         break;
