@@ -32,6 +32,7 @@ Controller\AdminPaymentController.class
 Model\entity\ClassEntity.class
 Model\dto\StudentDto.class
 View\SubjectPanel.class
+View\DashbordTeacher$5.class
 View\Startview.class
 Controller\CommonSupportEmailService.class
 View\AdminDashbordPanel.class

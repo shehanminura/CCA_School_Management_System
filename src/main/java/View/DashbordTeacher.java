@@ -46,6 +46,7 @@ public class DashbordTeacher extends javax.swing.JFrame {
         btnlogout = new javax.swing.JButton();
         jlbclass = new javax.swing.JLabel();
         btnhelp = new javax.swing.JButton();
+        lbledumate = new javax.swing.JLabel();
         sturightpanel = new javax.swing.JPanel();
 
         jInternalFrame1.setVisible(true);
@@ -119,6 +120,14 @@ public class DashbordTeacher extends javax.swing.JFrame {
         btnhelp.setText("Help");
         btnhelp.addActionListener(this::btnhelpActionPerformed);
 
+        lbledumate.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        lbledumate.setText("EduMate");
+        lbledumate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbledumateMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -131,9 +140,10 @@ public class DashbordTeacher extends javax.swing.JFrame {
                         .addComponent(jlbsubject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jlbpayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jlbprofile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jlbclass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jlbclass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbledumate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(btnhelp, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +156,9 @@ public class DashbordTeacher extends javax.swing.JFrame {
                 .addComponent(jlbpayment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlbclass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(162, 162, 162)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbledumate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(116, 116, 116)
                 .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnhelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -170,7 +182,7 @@ public class DashbordTeacher extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -182,8 +194,10 @@ public class DashbordTeacher extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sturightpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(sturightpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -210,7 +224,8 @@ public class DashbordTeacher extends javax.swing.JFrame {
         resetMenuColors(); 
         // 2. change color blue
         jlbsubject.setForeground(new java.awt.Color(0, 102, 255));
-        
+        SubjectPanel subjectPanel = new SubjectPanel();
+        loadPanel(subjectPanel);
              
     }//GEN-LAST:event_jlbsubjectMouseClicked
 
@@ -256,6 +271,20 @@ public class DashbordTeacher extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnhelpActionPerformed
 
+    private void lbledumateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbledumateMouseClicked
+         // convert all color black
+        resetMenuColors(); 
+        // 2. change color blue
+        lbledumate.setForeground(new java.awt.Color(0, 102, 255));
+        
+        // 3. Show "Coming Soon" alert
+        javax.swing.JOptionPane.showMessageDialog(
+        this, 
+        "EduMate AI Assistant is coming soon!", 
+        "Coming Soon", 
+        javax.swing.JOptionPane.INFORMATION_MESSAGE);        // TODO add your handling code here:
+    }//GEN-LAST:event_lbledumateMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -292,6 +321,7 @@ public class DashbordTeacher extends javax.swing.JFrame {
     private javax.swing.JLabel jlbpayment;
     private javax.swing.JLabel jlbprofile;
     private javax.swing.JLabel jlbsubject;
+    private javax.swing.JLabel lbledumate;
     private javax.swing.JPanel sturightpanel;
     // End of variables declaration//GEN-END:variables
 
@@ -313,5 +343,6 @@ public class DashbordTeacher extends javax.swing.JFrame {
         jlbpayment.setForeground(defaultColor);
         jlbprofile.setForeground(defaultColor);
         jlbclass.setForeground(defaultColor);
+        lbledumate.setForeground(defaultColor);
     }
 }
