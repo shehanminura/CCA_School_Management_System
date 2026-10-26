@@ -14,6 +14,7 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\CommonSupportEmailService.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\LoginController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\StudentProfileController.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\TeacherProfileController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\DateandTimeConnection\DateandTimeConnection.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\DBConnection\DBConnection.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\ExcelExportConnection\ExcelExportService.java
@@ -56,3 +57,4 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\Startview.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\StudentProfilePanel.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\SupportPopupView.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\TeacherProfilePanel.java

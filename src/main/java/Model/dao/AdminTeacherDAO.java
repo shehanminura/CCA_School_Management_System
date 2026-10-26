@@ -9,6 +9,8 @@ import java.util.List;
 
 public class AdminTeacherDAO {
 
+    private Object Model;
+
     // 1. Generate Auto ID for Teacher
     public String generateNextTeacherId() {
         String nextId = "CCAT001";
@@ -201,5 +203,38 @@ public class AdminTeacherDAO {
             e.printStackTrace();
             return false;
         }
+    }
+    public Model.entity.TeacherEntity searchTeacherByEmail(String email) {
+        String query = "SELECT t.*, u.email, u.password, u.status " +
+                       "FROM teacher t JOIN users u ON t.user_id = u.user_id WHERE u.email = ?";
+        try {
+            java.sql.Connection con = DBConnection.getInstance().getConnection();
+            try (java.sql.PreparedStatement pst = con.prepareStatement(query)) {
+                pst.setString(1, email);
+                try (java.sql.ResultSet rst = pst.executeQuery()) {
+                    if (rst.next()) {
+                        Model.entity.TeacherEntity teacher = new Model.entity.TeacherEntity();
+                        
+                        teacher.setTeacherId(rst.getString("teacher_id"));
+                        teacher.setName(rst.getString("name"));
+                        teacher.setNic(rst.getString("nic"));
+                        teacher.setBirthday(rst.getString("birthday"));
+                        teacher.setContactNumber(rst.getString("contact_number"));
+                        teacher.setEmail(rst.getString("email"));
+                        teacher.setAddress(rst.getString("address"));
+                        teacher.setGender(rst.getString("gender"));
+                        teacher.setSalary(rst.getDouble("salary")); // double අගය ලබාගැනීම
+                        teacher.setPassword(rst.getString("password"));
+                        teacher.setStatus(rst.getString("status"));
+                        teacher.setRegistrationDate(rst.getString("registration_date"));
+                        
+                        return teacher;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -2,7 +2,6 @@ Model\dto\SubjectDto.class
 View\DashbordAdmin$1.class
 View\DashbordAdmin$8.class
 View\AdminAddStuPanel.class
-View\DashbordTeacher$6.class
 ExcelExportConnection\ExcelExportService.class
 Controller\AdminStudentController.class
 View\Startview$1.class
@@ -32,11 +31,10 @@ View\DashbordAdmin$4.class
 Controller\AdminPaymentController.class
 Model\entity\ClassEntity.class
 Model\dto\StudentDto.class
-View\DashbordTeacher$5.class
-View\DashbordTeacher$8.class
 View\Startview.class
 Controller\CommonSupportEmailService.class
 View\AdminDashbordPanel.class
+Controller\TeacherProfileController.class
 MailConnection\MailConnection$1.class
 Model\dto\AdminDto.class
 Model\entity\TeacherEntity.class
@@ -55,6 +53,7 @@ Model\dto\TeacherDto.class
 View\AdminAddPaymentPanel.class
 Controller\AdminTeacherController.class
 com\mycompany\amv_school_management_system\AMV_School_Management_System.class
+View\TeacherProfilePanel.class
 Controller\AdminController.class
 Model\dao\AdminTeacherDAO.class
 View\AdminAddSubjectPanel.class
@@ -68,7 +67,6 @@ Controller\AdminDashboardController.class
 View\DashbordAdmin.class
 Model\dao\AdminClassDAO.class
 View\DashbordStudent.class
-View\DashbordTeacher$7.class
 View\SupportPopupView$2.class
 View\DashbordTeacher$3.class
 Controller\AddStuEmailService.class
