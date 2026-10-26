@@ -71,7 +71,7 @@ private AdminSubjectController controller;
         ));
         jScrollPane1.setViewportView(jTable);
 
-        jLabel1.setText("Class ID: ");
+        jLabel1.setText("Subject ID: ");
 
         jLabel3.setText("Name: ");
 

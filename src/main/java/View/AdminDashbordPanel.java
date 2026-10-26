@@ -5,7 +5,6 @@
 package View;
 
 import Controller.AdminDashboardController;
-import Controller.AdminPaymentController;
 import java.awt.Color;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -55,7 +54,11 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
         userpanel = new javax.swing.JPanel();
         jbtnPDFreport = new javax.swing.JButton();
         lbldate = new javax.swing.JLabel();
-        jbtnPDFreport1 = new javax.swing.JButton();
+        btnprofile = new javax.swing.JButton();
+        btnstudent = new javax.swing.JButton();
+        btnteacher = new javax.swing.JButton();
+        btnsubject = new javax.swing.JButton();
+        btnadmin = new javax.swing.JButton();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -92,7 +95,7 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
             .addGap(0, 247, Short.MAX_VALUE)
         );
 
-        jbtnPDFreport.setBackground(new java.awt.Color(255, 51, 51));
+        jbtnPDFreport.setBackground(new java.awt.Color(153, 0, 0));
         jbtnPDFreport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jbtnPDFreport.setForeground(new java.awt.Color(255, 255, 255));
         jbtnPDFreport.setText("Get Student Payment Reoprt");
@@ -103,49 +106,96 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
         lbldate.setForeground(new java.awt.Color(51, 51, 51));
         lbldate.setText("DATE");
 
-        jbtnPDFreport1.setBackground(new java.awt.Color(51, 204, 0));
-        jbtnPDFreport1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jbtnPDFreport1.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnPDFreport1.setText("Profile");
-        jbtnPDFreport1.setToolTipText("");
-        jbtnPDFreport1.addActionListener(this::jbtnPDFreport1ActionPerformed);
+        btnprofile.setBackground(new java.awt.Color(51, 204, 0));
+        btnprofile.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnprofile.setForeground(new java.awt.Color(255, 255, 255));
+        btnprofile.setText("Profile");
+        btnprofile.setToolTipText("");
+        btnprofile.addActionListener(this::btnprofileActionPerformed);
+
+        btnstudent.setBackground(new java.awt.Color(0, 51, 255));
+        btnstudent.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnstudent.setForeground(new java.awt.Color(255, 255, 255));
+        btnstudent.setText("Add Students");
+        btnstudent.setToolTipText("");
+        btnstudent.addActionListener(this::btnstudentActionPerformed);
+
+        btnteacher.setBackground(new java.awt.Color(0, 51, 255));
+        btnteacher.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnteacher.setForeground(new java.awt.Color(255, 255, 255));
+        btnteacher.setText("Add Teachers");
+        btnteacher.setToolTipText("");
+        btnteacher.addActionListener(this::btnteacherActionPerformed);
+
+        btnsubject.setBackground(new java.awt.Color(0, 51, 255));
+        btnsubject.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnsubject.setForeground(new java.awt.Color(255, 255, 255));
+        btnsubject.setText("Add Subjects");
+        btnsubject.setToolTipText("");
+        btnsubject.addActionListener(this::btnsubjectActionPerformed);
+
+        btnadmin.setBackground(new java.awt.Color(0, 51, 255));
+        btnadmin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnadmin.setForeground(new java.awt.Color(255, 255, 255));
+        btnadmin.setText("Add Admins");
+        btnadmin.setToolTipText("");
+        btnadmin.addActionListener(this::btnadminActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(chartContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jbtnPDFreport, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnteacher, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnsubject, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(userpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jbtnPDFreport1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(160, 160, 160)
-                        .addComponent(lbldate))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(chartContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(userpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(15, 15, 15)
-                            .addComponent(jbtnPDFreport, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addComponent(lbldate)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(11, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnPDFreport1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbldate))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chartContainerPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(userpanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(jbtnPDFreport, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnPDFreport, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnteacher, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnsubject, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -155,17 +205,37 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbtnPDFreportActionPerformed
 
-    private void jbtnPDFreport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPDFreport1ActionPerformed
-       
+    private void btnprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprofileActionPerformed
+        loadPanelToDashboard(new AdminProfilePanel());
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbtnPDFreport1ActionPerformed
+    }//GEN-LAST:event_btnprofileActionPerformed
+
+    private void btnstudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstudentActionPerformed
+        loadPanelToDashboard(new AdminAddStuPanel());        // TODO add your handling code here:
+    }//GEN-LAST:event_btnstudentActionPerformed
+
+    private void btnteacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnteacherActionPerformed
+       loadPanelToDashboard(new AdminAddTeacherPanel()); // TODO add your handling code here:
+    }//GEN-LAST:event_btnteacherActionPerformed
+
+    private void btnsubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubjectActionPerformed
+     loadPanelToDashboard(new AdminAddSubjectPanel());   // TODO add your handling code here:
+    }//GEN-LAST:event_btnsubjectActionPerformed
+
+    private void btnadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadminActionPerformed
+        loadPanelToDashboard(new AdminAddAdminPanel());        // TODO add your handling code here:
+    }//GEN-LAST:event_btnadminActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnadmin;
+    private javax.swing.JButton btnprofile;
+    private javax.swing.JButton btnstudent;
+    private javax.swing.JButton btnsubject;
+    private javax.swing.JButton btnteacher;
     private javax.swing.JPanel chartContainerPanel;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JButton jbtnPDFreport;
-    private javax.swing.JButton jbtnPDFreport1;
     private javax.swing.JLabel lbldate;
     private javax.swing.JPanel userpanel;
     // End of variables declaration//GEN-END:variables
@@ -252,5 +322,16 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
         targetPanel.repaint();
     }
 
+// ✅ තිබිය යුත්තේ මෙම පොදු (Generic) මෙතඩ් එක පමණි
+    private void loadPanelToDashboard(javax.swing.JPanel panel) {
+        java.awt.Container parent = this.getParent();
+        if (parent != null) {
+            parent.removeAll();
+            parent.setLayout(new java.awt.BorderLayout());
+            parent.add(panel, java.awt.BorderLayout.CENTER);
+            parent.revalidate();
+            parent.repaint();
+        }
+    }
   
 }
