@@ -44,6 +44,7 @@ View\DashbordTeacher$1.class
 View\SupportPopupView$1.class
 PdfExportConnection\PdfExportConnection.class
 View\DashbordAdmin$3.class
+View\AdminProfilePanel.class
 Model\entity\SubjectEntity.class
 Controller\AdminSubjectController.class
 View\DashbordStudent$3.class
@@ -79,6 +80,7 @@ Controller\LoginController.class
 Model\dao\AdminDashboardDAO.class
 Model\dto\LoginDto.class
 Model\entity\UserEntity.class
+Controller\AdminProfileController.class
 Model\dao\AdminPaymentDAO.class
 View\DashbordStudent$1.class
 View\Startview$2.class

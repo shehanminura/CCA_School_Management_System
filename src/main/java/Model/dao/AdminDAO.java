@@ -160,4 +160,50 @@ public class AdminDAO {
             }
         } catch (Exception e) { e.printStackTrace(); return false; }
     }
+    
+    // 🔴 1. Admin ID එක හෝ Email එක මඟින් Admin ගේ සියලුම විස්තර (Registration Date සමඟ) ලබාගැනීම
+    public AdminEntity getAdminProfileData(String identifier) {
+        String query = "SELECT a.admin_id, a.name, a.nic, a.birthday, a.contact_number, u.email, a.address, a.gender, a.salary, u.password, u.status, a.registration_date " +
+                       "FROM admin a JOIN users u ON a.user_id = u.user_id " +
+                       "WHERE a.admin_id = ? OR u.email = ?";
+        try {
+            Connection con = DBConnection.getInstance().getConnection();
+            try (PreparedStatement pst = con.prepareStatement(query)) {
+                pst.setString(1, identifier);
+                pst.setString(2, identifier);
+                try (ResultSet rst = pst.executeQuery()) {
+                    if (rst.next()) {
+                        AdminEntity admin = new AdminEntity(
+                            rst.getString("admin_id"), rst.getString("name"), rst.getString("nic"), rst.getString("birthday"),
+                            rst.getString("contact_number"), rst.getString("email"), rst.getString("address"), rst.getString("gender"),
+                            rst.getDouble("salary"), rst.getString("password"), rst.getString("status")
+                        );
+                        admin.setRegistrationDate(rst.getString("registration_date"));
+                        return admin;
+                    }
+                }
+            }
+        } catch (Exception e) { 
+            e.printStackTrace(); 
+        }
+        return null;
+    }
+
+    // 🔴 2. Admin ගේ Password එක පමණක් Update කිරීම
+    public boolean updateAdminPassword(String adminId, String newPassword) {
+        String query = "UPDATE users SET password = ? WHERE user_id = (SELECT user_id FROM admin WHERE admin_id = ?)";
+        try {
+            Connection con = DBConnection.getInstance().getConnection();
+            try (PreparedStatement pst = con.prepareStatement(query)) {
+                pst.setString(1, newPassword);
+                pst.setString(2, adminId);
+                return pst.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    
 }

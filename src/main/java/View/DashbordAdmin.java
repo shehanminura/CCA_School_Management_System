@@ -321,7 +321,9 @@ public class DashbordAdmin extends javax.swing.JFrame {
         resetMenuColors(); 
         // 2. change color blue
         jlbprofile.setForeground(new java.awt.Color(0, 102, 255));
-     
+        
+        AdminProfilePanel adminProfilePanel = new AdminProfilePanel();
+        loadPanel(adminProfilePanel);
     }//GEN-LAST:event_jlbprofileMouseClicked
 
     private void jlbdashbordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbdashbordMouseClicked

@@ -2,6 +2,7 @@ package Controller;
 
 import Model.dao.LoginDAO;
 import Model.entity.UserEntity;
+import View.DashbordAdmin;
 import View.Loginview;
 import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
@@ -49,6 +50,7 @@ public class LoginController {
                 switch (role) {
                     case "Admin":
                         JOptionPane.showMessageDialog(null, "Welcome Admin!");
+                         AdminProfileController.loggedInEmail = email; // (මෙතනට ඔයා LoginController එකේ email එක ගත්ත variable නම දෙන්න)
                          
                         View.DashbordAdmin adminDash = new View.DashbordAdmin();
                         adminDash.setVisible(true);

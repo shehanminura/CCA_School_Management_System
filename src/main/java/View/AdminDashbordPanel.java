@@ -33,6 +33,11 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
         // Chart දෙකම ලෝඩ් කිරීම
         loadPieChart();
         loadUserChart();
+        
+        new javax.swing.Timer(1000, (java.awt.event.ActionEvent e) -> {
+            String currentDateTime = DateandTimeConnection.DateandTimeConnection.getInstance().getCurrentDateTime();
+            lbldate.setText(currentDateTime);
+        }).start();
       
     }
 
@@ -49,6 +54,8 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
         chartContainerPanel = new javax.swing.JPanel();
         userpanel = new javax.swing.JPanel();
         jbtnPDFreport = new javax.swing.JButton();
+        lbldate = new javax.swing.JLabel();
+        jbtnPDFreport1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -71,7 +78,7 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
         );
         chartContainerPanelLayout.setVerticalGroup(
             chartContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 247, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout userpanelLayout = new javax.swing.GroupLayout(userpanel);
@@ -92,32 +99,53 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
         jbtnPDFreport.setToolTipText("");
         jbtnPDFreport.addActionListener(this::jbtnPDFreportActionPerformed);
 
+        lbldate.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbldate.setForeground(new java.awt.Color(51, 51, 51));
+        lbldate.setText("DATE");
+
+        jbtnPDFreport1.setBackground(new java.awt.Color(51, 204, 0));
+        jbtnPDFreport1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbtnPDFreport1.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnPDFreport1.setText("Profile");
+        jbtnPDFreport1.setToolTipText("");
+        jbtnPDFreport1.addActionListener(this::jbtnPDFreport1ActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(chartContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(userpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jbtnPDFreport, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                        .addComponent(jbtnPDFreport1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(160, 160, 160)
+                        .addComponent(lbldate))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(chartContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(userpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(15, 15, 15)
+                            .addComponent(jbtnPDFreport, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnPDFreport1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbldate))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chartContainerPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userpanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(userpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(chartContainerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbtnPDFreport, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -127,11 +155,18 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbtnPDFreportActionPerformed
 
+    private void jbtnPDFreport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPDFreport1ActionPerformed
+       
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnPDFreport1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel chartContainerPanel;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JButton jbtnPDFreport;
+    private javax.swing.JButton jbtnPDFreport1;
+    private javax.swing.JLabel lbldate;
     private javax.swing.JPanel userpanel;
     // End of variables declaration//GEN-END:variables
  // 1. Payment Status Chart (chartContainerPanel තුළ)
@@ -216,4 +251,6 @@ public class AdminDashbordPanel extends javax.swing.JPanel {
         targetPanel.revalidate();
         targetPanel.repaint();
     }
+
+  
 }
