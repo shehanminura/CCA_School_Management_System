@@ -46,7 +46,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" pref="880" max="32767" attributes="0"/>
+          <Component id="jPanel1" pref="954" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -60,11 +60,11 @@
               <Component id="jPanel1" min="-2" pref="85" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="sturightpanel" max="32767" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="jPanel2" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
+                  <Component id="sturightpanel" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -118,7 +118,6 @@
                           <Component id="jlbsubject" max="32767" attributes="0"/>
                           <Component id="jlbpayment" max="32767" attributes="0"/>
                           <Component id="jlbprofile" max="32767" attributes="0"/>
-                          <Component id="jlbclass" max="32767" attributes="0"/>
                           <Component id="lbledumate" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Component id="btnhelp" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
@@ -137,10 +136,8 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jlbpayment" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jlbclass" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="lbledumate" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                   <Component id="btnlogout" min="-2" pref="37" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnhelp" max="32767" attributes="0"/>
@@ -198,17 +195,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnlogoutActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jlbclass">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Bookman Old Style" size="24" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Add Class"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jlbclassMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnhelp">

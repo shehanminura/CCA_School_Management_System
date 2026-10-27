@@ -10,6 +10,7 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminStudentController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminSubjectController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminTeacherController.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AssignmentController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\CommonSupportController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\CommonSupportEmailService.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\LoginController.java
@@ -27,8 +28,10 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminStudentDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminSubjectDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminTeacherDAO.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AssignmentDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\LoginDAO.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dto\AdminDto.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dto\AssignmentDto.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dto\ClassDto.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dto\LoginDto.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dto\PaymentDto.java
@@ -36,6 +39,7 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dto\SubjectDto.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dto\TeacherDto.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\entity\AdminEntity.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\entity\AssignmentEntity.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\entity\ClassEntity.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\entity\PaymentEntity.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\entity\StudentEntity.java
@@ -51,6 +55,7 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AdminAddTeacherPanel.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AdminDashbordPanel.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AdminProfilePanel.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AssignmentPanel.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\DashbordAdmin.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\DashbordStudent.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\DashbordTeacher.java
