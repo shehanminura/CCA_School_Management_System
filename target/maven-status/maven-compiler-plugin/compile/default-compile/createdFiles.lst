@@ -61,6 +61,7 @@ View\Startview$4.class
 Model\dao\AssignmentDAO.class
 Model\dao\LoginDAO.class
 View\SupportPopupView.class
+View\StudentAssignmentPanel.class
 Controller\AddTeacherEmailService.class
 Model\dao\AdminSubjectDAO.class
 View\Loginview.class
@@ -77,6 +78,7 @@ View\AdminDashbordPanel.class
 Controller\TeacherProfileController.class
 Model\entity\TeacherEntity.class
 View\DashbordTeacher$1.class
+Controller\StudentAssignmentController.class
 View\AdminProfilePanel.class
 Controller\SubjectController$1.class
 Model\entity\SubjectEntity.class
@@ -87,6 +89,8 @@ DBConnection\DBConnection.class
 Controller\AdminDashboardController.class
 View\DashbordAdmin.class
 View\DashbordStudent.class
+Controller\StudentAssignmentController$1.class
+View\StudentAssignmentPanel$1.class
 View\DashbordAdmin$6.class
 Controller\LoginController$LoginListener.class
 Controller\AdminProfileController.class
