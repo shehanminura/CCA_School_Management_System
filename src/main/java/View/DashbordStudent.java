@@ -212,6 +212,9 @@ public class DashbordStudent extends javax.swing.JFrame {
         // 2. change color blue
         jlbassigemt.setForeground(new java.awt.Color(0, 102, 255));
         
+        StudentAssignmentPanel studentAssignmentPanel = new StudentAssignmentPanel();
+        loadPanel(studentAssignmentPanel);
+        
             // TODO add your handling code here:
     }//GEN-LAST:event_jlbassigemtMouseClicked
 
