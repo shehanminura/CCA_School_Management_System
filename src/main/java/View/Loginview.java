@@ -56,8 +56,8 @@ public class Loginview extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        adminpsw = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
+        adminpsw = new javax.swing.JPasswordField();
 
         jLabel7.setText("jLabel7");
 
@@ -93,7 +93,7 @@ public class Loginview extends javax.swing.JFrame {
         adminemail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         adminemail.setForeground(new java.awt.Color(0, 0, 51));
         adminemail.addActionListener(this::adminemailActionPerformed);
-        jPanel1.add(adminemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 270, -1));
+        jPanel1.add(adminemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 270, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Password");
@@ -108,6 +108,15 @@ public class Loginview extends javax.swing.JFrame {
 
         jLabel6.setForeground(new java.awt.Color(0, 0, 204));
         jLabel6.setText("Forgot Password ?");
+        jLabel6.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel6AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -115,7 +124,7 @@ public class Loginview extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel9.setText("200+");
+        jLabel9.setText("5k+");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -123,16 +132,16 @@ public class Loginview extends javax.swing.JFrame {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel11.setText("200+");
+        jLabel11.setText("400+");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, -1, -1));
 
-        adminpsw.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        adminpsw.setForeground(new java.awt.Color(0, 0, 51));
-        adminpsw.addActionListener(this::adminpswActionPerformed);
-        jPanel1.add(adminpsw, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 270, -1));
-
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.green, java.awt.Color.yellow, java.awt.Color.orange));
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setForeground(new java.awt.Color(0, 51, 51));
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 300, 100));
+
+        adminpsw.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(adminpsw, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 270, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 380, 450));
 
@@ -164,9 +173,9 @@ public class Loginview extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_btnbackActionPerformed
 
-    private void adminpswActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminpswActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adminpswActionPerformed
+    private void jLabel6AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel6AncestorAdded
+        
+    }//GEN-LAST:event_jLabel6AncestorAdded
 
     /**
      * @param args the command line arguments
@@ -191,7 +200,7 @@ public class Loginview extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField adminemail;
-    private javax.swing.JTextField adminpsw;
+    private javax.swing.JPasswordField adminpsw;
     private javax.swing.JButton btnback;
     private javax.swing.JButton btnlogin;
     private javax.swing.JLabel jLabel1;
@@ -213,7 +222,7 @@ public String getEmail() {
     return adminemail.getText().trim();
 }
     public String getPassword() { 
-        return adminpsw.getText().trim();
+        return new String(adminpsw.getPassword()).trim();
     }
     public void clearPassword() {
         adminpsw.setText("");

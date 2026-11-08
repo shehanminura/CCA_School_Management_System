@@ -80,7 +80,7 @@ public class DashbordAdmin extends javax.swing.JFrame {
         jLabel1.setText("Admin Dashbord");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
 
         jlbadmin.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         jlbadmin.setText("Add Admin");
@@ -136,7 +136,7 @@ public class DashbordAdmin extends javax.swing.JFrame {
             }
         });
 
-        btnlogout.setBackground(new java.awt.Color(255, 51, 51));
+        btnlogout.setBackground(new java.awt.Color(153, 0, 0));
         btnlogout.setFont(new java.awt.Font("Rockwell Condensed", 1, 18)); // NOI18N
         btnlogout.setForeground(new java.awt.Color(255, 255, 255));
         btnlogout.setText("Logout");

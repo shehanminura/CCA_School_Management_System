@@ -5,7 +5,9 @@
 package DBConnection;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBConnection {
@@ -16,6 +18,16 @@ public class DBConnection {
         // If the database does not exist, create it automatically. If it already exists, use the existing database.
         String url = "jdbc:mysql://localhost:3306/ccaschool_db?createDatabaseIfNotExist=true";
         connection = DriverManager.getConnection(url, "root", "1234"); 
+            
+        //Chick Users Table
+        DatabaseMetaData dbm = connection.getMetaData();
+        try (ResultSet tables = dbm.getTables(null, null, "users", null)) {
+            if (!tables.next()) {
+                // If have't users table call DBTableConnecion
+                System.out.println("First time setup detected. Generating tables...");
+                DBTableConnection.generateTables(connection);
+            }
+        }       
     }
 
     public static DBConnection getInstance() throws SQLException {

@@ -261,12 +261,8 @@ public class DashbordTeacher extends javax.swing.JFrame {
         // 2. change color blue
         lbledumate.setForeground(new java.awt.Color(0, 102, 255));
         
-        // 3. Show "Coming Soon" alert
-        javax.swing.JOptionPane.showMessageDialog(
-        this, 
-        "EduMate AI Assistant is coming soon!", 
-        "Coming Soon", 
-        javax.swing.JOptionPane.INFORMATION_MESSAGE);        // TODO add your handling code here:
+        ChatPanel chatPanel = new ChatPanel();
+        loadPanel(chatPanel);      // TODO add your handling code here:
     }//GEN-LAST:event_lbledumateMouseClicked
 
     /**

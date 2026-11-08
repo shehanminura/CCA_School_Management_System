@@ -10,6 +10,7 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminStudentController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminSubjectController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AdminTeacherController.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AIChatController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\AssignmentController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\CommonSupportController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\CommonSupportEmailService.java
@@ -20,6 +21,7 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Controller\TeacherProfileController.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\DateandTimeConnection\DateandTimeConnection.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\DBConnection\DBConnection.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\DBConnection\DBTableConnection.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\ExcelExportConnection\ExcelExportService.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\MailConnection\MailConnection.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\Model\dao\AdminClassDAO.java
@@ -57,6 +59,7 @@ C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\j
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AdminDashbordPanel.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AdminProfilePanel.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\AssignmentPanel.java
+C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\ChatPanel.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\DashbordAdmin.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\DashbordStudent.java
 C:\Users\User\Documents\NetBeansProjects\AMV_School_Management_System\src\main\java\View\DashbordTeacher.java
